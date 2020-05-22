@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\FSLogistic.Core\FSLogistic.Core.csproj" />
+		<ProjectReference Include="..\FSLogistic.Model\FSLogistic.Model.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Exception\" />
+		<Folder Include="UoW\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="log4net" Version="2.0.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+	</ItemGroup>
+
+</Project>

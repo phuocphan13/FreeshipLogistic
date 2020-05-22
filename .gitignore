@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/FSLogistic.Core/bin/Debug/netcoreapp3.1
+/FSLogistic.Core/obj
+/FSLogistic.Domain/bin/Debug/netcoreapp3.1
+/FSLogistic.Domain/obj
+/FSLogistic.Model/bin/Debug/netcoreapp3.1
+/FSLogistic.Model/obj
+/FSLogistic.Service/bin/Debug/netcoreapp3.1
+/FSLogistic.Service/obj
+/FSLogistic.Web/ClientApp/e2e
