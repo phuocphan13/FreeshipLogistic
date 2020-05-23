@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { ProductComponent } from './product/product.component';
+import { ServiceModule } from 'src/core/services/service.module';
 
 @NgModule({
   declarations: [
@@ -19,17 +21,22 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+
     ApiAuthorizationModule,
+    ServiceModule,
+    
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: 'product', component: ProductComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
   providers: [

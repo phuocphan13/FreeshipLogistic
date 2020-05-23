@@ -1,4 +1,5 @@
 ﻿using FSLogistic.Domain;
+using FSLogistic.Service.Product;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,14 +13,11 @@ namespace FSLogistic.Service
         public static void ConfigureService(this IServiceCollection services, IConfiguration configuration)
         {
             services.ConfigureDomain(configuration);
-            //services.AddScoped<IDetailService, DetailService>();
-            //services.AddScoped<IOwnerService, OwnerService>();
-            //services.AddScoped<IDriverService, DriverService>();
-            //services.AddScoped<IVehicleService, VehicleService>();
-            //services.AddScoped<IExcelService, ExcelService>();
-            //services.AddScoped<IOverviewService, OverviewService>();
-            //services.AddScoped<IUserService, UserService>();
-            //services.AddScoped<ICompanyService, CompanyService>();
+
+            services.AddScoped<IProductService, ProductService>();
+
+
+
             //services.AddTransient<IPrincipal>(provider =>
             //{
             //    if (provider.GetService<IHttpContextAccessor>().HttpContext != null)
