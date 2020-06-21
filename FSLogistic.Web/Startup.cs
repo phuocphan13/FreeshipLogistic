@@ -64,6 +64,8 @@ namespace FSLogistic.Web
                 });
             });
 
+            services.AddAutoMapper(c => c.AddProfile<ServiceMapperProfile>(), typeof(Startup));
+
             services.AddCors();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)

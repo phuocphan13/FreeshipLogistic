@@ -17,11 +17,12 @@ namespace FSLogistic.Domain
         public static void ConfigureDomain(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<FreeShipLogisticResourceContext>(options =>
-                options.UseSqlServer("Server=DESKTOP-81STRLN\\LUCIFER;Database=FreeShipLogisticResource;Trusted_Connection=True;"));
+                options.UseSqlServer("Server=DESKTOP-GPAHG3F\\SQLEXPRESS;Database=FreeShipLogisticResource;Trusted_Connection=True;"));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IRepository<Product>, Repository<Product>>();
+            services.AddScoped<IRepository<Summary>,Repository<Summary>>();
         }
     }
 }
