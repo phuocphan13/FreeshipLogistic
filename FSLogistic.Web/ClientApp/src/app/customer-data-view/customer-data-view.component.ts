@@ -376,7 +376,7 @@ export class CustomerDataViewComponent implements OnInit {
   ]
   listHeaders = ["STT","Code", "Name", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6",
   "Q7", "Q8", "Q9", "Q10", "Q11", "Q12","QTD","QGV","QBTH","QTB","QTP","QBTN","QPN","QCC","QHM","QBC",
-  "QNB","QCG"];
+  "QNB","QCG"," "];
 
   constructor() { }
 
