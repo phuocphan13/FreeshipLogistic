@@ -15,6 +15,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { ProductComponent } from './product/product.component';
 import { ServiceModule } from 'src/core/services/service.module';
 import { TestFlowComponent } from './test-flow/test-flow.component';
+import { CustomerViewComponent } from './customer-view/customer-view.component';
+import { CustomerDataViewComponent } from './customer-data-view/customer-data-view.component';
+import { CustomerToolbarComponent } from './customer-toolbar/customer-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { TestFlowComponent } from './test-flow/test-flow.component';
     FetchDataComponent,
     ProductComponent,
     TestFlowComponent,
+    CustomerViewComponent,
+    CustomerDataViewComponent,
+    CustomerToolbarComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -39,6 +45,7 @@ import { TestFlowComponent } from './test-flow/test-flow.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'product', component: ProductComponent, canActivate: [AuthorizeGuard] },
+      { path: 'customer', component: CustomerViewComponent },
       { path: 'test-flow', component: TestFlowComponent, canActivate: [AuthorizeGuard] }
     ])
   ],
