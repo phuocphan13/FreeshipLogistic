@@ -1,0 +1,11 @@
+.view-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: cursive;
+    font-size: 40px;
+    text-align: center;
+}

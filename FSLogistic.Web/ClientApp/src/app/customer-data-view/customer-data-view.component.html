@@ -1,0 +1,42 @@
+
+<div class="table-container table table-striped">
+    <table>
+        <thead>
+            <tr class="row-head">
+                <th *ngFor ="let item of listHeaders">{{item}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row-body" [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1"  *ngFor="let item of listCustomers; index as i">
+                <td class="td-body">{{i+1}}</td>
+                <td class="td-body">{{item.Code}}</td>
+                <td class="td-body">{{item.Name}}</td>
+                <td class="td-body">{{item.Q1}}</td>
+                <td class="td-body">{{item.Q2}}</td>
+                <td class="td-body">{{item.Q3}}</td>
+                <td class="td-body">{{item.Q4}}</td>
+                <td class="td-body">{{item.Q5}}</td>
+                <td class="td-body">{{item.Q6}}</td>
+                <td class="td-body">{{item.Q7}}</td>
+                <td class="td-body">{{item.Q8}}</td>
+                <td class="td-body">{{item.Q9}}</td>
+                <td class="td-body">{{item.Q10}}</td>
+                <td class="td-body">{{item.Q11}}</td>
+                <td class="td-body">{{item.Q12}}</td>
+                <td class="td-body">{{item.QTD}}</td>
+                <td class="td-body">{{item.QGV}}</td>
+                <td class="td-body">{{item.QBTH}}</td>
+                <td class="td-body">{{item.QTB}}</td>
+                <td class="td-body">{{item.QTP}}</td>
+                <td class="td-body">{{item.QBTN}}</td>
+                <td class="td-body">{{item.QPN}}</td>
+                <td class="td-body">{{item.QCC}}</td>
+                <td class="td-body">{{item.QHM}}</td>
+                <td class="td-body">{{item.QBC}}</td>
+                <td class="td-body">{{item.QNB}}</td>
+                <td class="td-body">{{item.QCG}}</td>
+                <td><button>Update</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
