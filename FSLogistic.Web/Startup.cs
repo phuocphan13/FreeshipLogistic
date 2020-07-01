@@ -117,6 +117,7 @@ namespace FSLogistic.Web
             app.UseAuthorization();
 
             app.UseLoggerMiddleware();
+            app.UseAuthenHandlerMiddleware();
 
             app.UseSwaggerUI(c =>
             {
