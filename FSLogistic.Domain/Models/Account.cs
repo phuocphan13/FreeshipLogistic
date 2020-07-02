@@ -25,7 +25,7 @@ namespace FSLogistic.Domain.Models
 
         public bool IsActive { get; set; }
 
-        public Guid GUID { get; set; }
+        public Guid Guid { get; set; }
 
         [NotMapped]
         public string Name { 

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 
 namespace FSLogistic.Service
@@ -18,6 +19,13 @@ namespace FSLogistic.Service
         private readonly IHttpContextAccessor _context;
         
         private readonly IRepository<Account> _accountRepository;
+
+        public BaseService(IPrincipal principal, IHttpContextAccessor context, IRepository<Account> accountRepository)
+        {
+            _principal = principal as ClaimsPrincipal;
+            _context = context;
+            _accountRepository = accountRepository;
+        }
 
         protected string CurrentUserGUID => Principal.GetCurrentUserGUID(_context);
 
