@@ -1,4 +1,5 @@
-﻿using FSLogistic.Core.Repositories;
+﻿using FSLogistic.Core.Consts;
+using FSLogistic.Core.Repositories;
 using FSLogistic.Core.UoW;
 using FSLogistic.Domain.Models;
 using FSLogistic.Domain.Repositories;
@@ -17,7 +18,7 @@ namespace FSLogistic.Domain
         public static void ConfigureDomain(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<FreeShipLogisticResourceContext>(options =>
-                options.UseSqlServer("Server=DESKTOP-GPAHG3F\\SQLEXPRESS;Database=FreeShipLogisticResource;Trusted_Connection=True;"));
+                options.UseSqlServer(Const.ConnectionStringResource));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

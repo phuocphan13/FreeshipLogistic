@@ -1,4 +1,5 @@
 ﻿using System;
+using FSLogistic.Core.Consts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -21,11 +22,12 @@ namespace FSLogistic.Domain.Models
         public virtual DbSet<Bill> Bill { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Summary> Summary { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-GPAHG3F\\SQLEXPRESS;Database=FreeShipLogisticResource;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(Const.ConnectionStringResource);
             }
         }
 

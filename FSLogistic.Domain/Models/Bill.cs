@@ -7,20 +7,44 @@ using System.Text;
 
 namespace FSLogistic.Domain.Models
 {
-    public partial class Bill:BaseTable
+    public partial class Bill : BaseEntityModel
     {
-        public Customer Customer { get; set; }
+        [StringLength(256)]
         public string ReceiverName { get; set; }
+
+        [StringLength(500)]
         public string Address { get; set; }
+        
+        [Required]
         public int District { get; set; }
+
+        //[RegularExpression(@"^\$?\d+(\.(\d{2}))?$")]
+        [Required]
         public string PhoneNumber { get; set; }
+        
         public string CustomerNote { get; set; }
-        public Account Account { get; set; }
-        public string Total { get; set; }
-        public string Fee { get; set; }
-        public string AdvanceMoney { get; set; }
-        public int Status { get; set; }
+        
+        public decimal Total { get; set; }
+        
+        public decimal Fee { get; set; }
+        
+        public decimal AdvanceMoney { get; set; }
+        
+        [Required]
+        public BillDeliveryStatus Status { get; set; }
+        
         public string StaffNote { get; set; }
+        
         public DateTime DoneDate { get; set; }
+
+        [ForeignKey("Customer")]
+        public int CustomerId { get; set; }
+
+        public Customer Customer { get; set; }
+
+        [ForeignKey("Account")]
+        public int AccountId { get; set; }
+
+        public Account Account { get; set; }
     }
 }

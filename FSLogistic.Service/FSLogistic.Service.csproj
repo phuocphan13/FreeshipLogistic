@@ -1,17 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\FSLogistic.Core\FSLogistic.Core.csproj" />
-    <ProjectReference Include="..\FSLogistic.Domain\FSLogistic.Domain.csproj" />
-    <ProjectReference Include="..\FSLogistic.Model\FSLogistic.Model.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="9.0.0" />
+		<ProjectReference Include="..\FSLogistic.Core\FSLogistic.Core.csproj" />
+		<ProjectReference Include="..\FSLogistic.Domain\FSLogistic.Domain.csproj" />
+		<ProjectReference Include="..\FSLogistic.Model\FSLogistic.Model.csproj" />
+	</ItemGroup>
 
 </Project>

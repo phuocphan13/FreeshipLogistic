@@ -5,14 +5,19 @@ using System.Text;
 
 namespace FSLogistic.Domain.Models
 {
-    public partial class Autocomplete
+    public class BaseEntityModel
     {
         [Key]
         public int Id { get; set; }
         
         [Required]
-        public int Type { get; set; }
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
+        public int CreatedBy { get; set; }
         
-        public string Data { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        
+        public int? UpdatedBy { get; set; }
     }
 }

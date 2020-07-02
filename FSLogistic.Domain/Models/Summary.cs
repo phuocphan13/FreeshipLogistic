@@ -6,11 +6,15 @@ using System.Text;
 
 namespace FSLogistic.Domain.Models
 {
-    public partial class Summary:BaseModel
+    public partial class Summary : BaseEntityModel
     {
+        [MaxLength(256)]
         public string Title { get; set; }
+
+        [MaxLength(256)]
         public string Note { get; set; }
-        public string Total { get; set; }
         
+        [Required]
+        public decimal Total { get; set; }
     }
 }

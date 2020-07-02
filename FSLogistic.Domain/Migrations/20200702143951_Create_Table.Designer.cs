@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FSLogistic.Domain.Migrations
 {
     [DbContext(typeof(FreeShipLogisticResourceContext))]
-    [Migration("20200603120738_CreateDB")]
-    partial class CreateDB
+    [Migration("20200702143951_Create_Table")]
+    partial class Create_Table
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,12 +28,10 @@ namespace FSLogistic.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthenId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CodeStaff")
+                    b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -41,18 +39,30 @@ namespace FSLogistic.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<Guid>("GUID")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
-                    b.Property<int>("UpdatedBy")
+                    b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -69,7 +79,7 @@ namespace FSLogistic.Domain.Migrations
                     b.Property<string>("Data")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Enum")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -84,14 +94,15 @@ namespace FSLogistic.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int>("AccountId")
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
 
-                    b.Property<string>("AdvanceMoney")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("AdvanceMoney")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -99,7 +110,7 @@ namespace FSLogistic.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<string>("CustomerNote")
@@ -111,14 +122,16 @@ namespace FSLogistic.Domain.Migrations
                     b.Property<DateTime>("DoneDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("NameReceiver")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Fee")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShippingFee")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("ReceiverName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("StaffNote")
                         .HasColumnType("nvarchar(max)");
@@ -126,13 +139,13 @@ namespace FSLogistic.Domain.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("TotalPrice")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UpdatedBy")
+                    b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -151,9 +164,10 @@ namespace FSLogistic.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CodeCustomer")
+                    b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -161,110 +175,87 @@ namespace FSLogistic.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("NameCustomer")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
-                    b.Property<string>("Q1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q1")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q10")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q10")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q11")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q11")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q12")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q12")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q2")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q3")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q4")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q4")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q5")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q5")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q6")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q6")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q7")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q7")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q8")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q8")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Q9")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Q9")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QBC")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QBC")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QBTH")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QBTH")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QBTN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QBTN")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QCG")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QCG")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QGV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QGV")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QHM")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QHM")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QNB")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QNB")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QPN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QPN")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QTB")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QTB")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QTD")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QTD")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("QTP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("QTP")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Qcc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Qcc")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UpdatedBy")
+                    b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -286,20 +277,20 @@ namespace FSLogistic.Domain.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
-                    b.Property<string>("OtherPay")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
-                    b.Property<string>("TotalPrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UpdateBy")
+                    b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -311,11 +302,15 @@ namespace FSLogistic.Domain.Migrations
                 {
                     b.HasOne("FSLogistic.Domain.Models.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FSLogistic.Domain.Models.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

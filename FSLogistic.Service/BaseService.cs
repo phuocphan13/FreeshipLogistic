@@ -1,5 +1,6 @@
 ﻿using FSLogistic.Core.Extensions;
 using FSLogistic.Core.Repositories;
+using FSLogistic.Domain.Models;
 using FSLogistic.Model.Shared;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -22,8 +23,6 @@ namespace FSLogistic.Service
 
         protected Account User => GetUser();
 
-        protected int CompanyId => GetUser().CompanyId;
-
         protected ClaimsPrincipal Principal
         {
             get
@@ -45,7 +44,7 @@ namespace FSLogistic.Service
             return account;
         }
 
-        protected void AddInfoDataForEntity<T>(T modelObject, bool isCreate) where T : BaseModel
+        protected void AddInfoDataForEntity<T>(T modelObject, bool isCreate) where T : BaseEntityModel
         {
             if (User == null)
             {
@@ -58,8 +57,6 @@ namespace FSLogistic.Service
             }
             modelObject.UpdatedBy = User.Id;
             modelObject.UpdatedDate = GetCurrentDate();
-            modelObject.CompanyId = User.CompanyId;
-            modelObject.IsActive = true;
         }
         protected ResponeModel<T> SetResponeData<T>(string message, ResponeStatusEnum status, T data) where T : class
         {

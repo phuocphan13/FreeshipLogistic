@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FSLogistic.Domain.Migrations
 {
-    public partial class CreateDB : Migration
+    public partial class Create_Table : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,14 +13,16 @@ namespace FSLogistic.Domain.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CodeStaff = table.Column<string>(nullable: false),
-                    AuthenId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    IsActive = table.Column<bool>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     CreatedBy = table.Column<int>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedBy = table.Column<int>(nullable: false)
+                    UpdatedDate = table.Column<DateTime>(nullable: true),
+                    UpdatedBy = table.Column<int>(nullable: true),
+                    Code = table.Column<string>(maxLength: 10, nullable: false),
+                    UserId = table.Column<int>(nullable: false),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    FirstName = table.Column<string>(maxLength: 50, nullable: false),
+                    IsActive = table.Column<bool>(nullable: false),
+                    GUID = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,7 +35,7 @@ namespace FSLogistic.Domain.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Enum = table.Column<int>(nullable: false),
+                    Type = table.Column<int>(nullable: false),
                     Data = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -47,36 +49,36 @@ namespace FSLogistic.Domain.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CodeCustomer = table.Column<string>(nullable: false),
-                    NameCustomer = table.Column<string>(nullable: false),
-                    Q1 = table.Column<string>(nullable: false),
-                    Q2 = table.Column<string>(nullable: false),
-                    Q3 = table.Column<string>(nullable: false),
-                    Q4 = table.Column<string>(nullable: false),
-                    Q5 = table.Column<string>(nullable: false),
-                    Q6 = table.Column<string>(nullable: false),
-                    Q7 = table.Column<string>(nullable: false),
-                    Q8 = table.Column<string>(nullable: false),
-                    Q9 = table.Column<string>(nullable: false),
-                    Q10 = table.Column<string>(nullable: false),
-                    Q11 = table.Column<string>(nullable: false),
-                    Q12 = table.Column<string>(nullable: false),
-                    QTD = table.Column<string>(nullable: false),
-                    QGV = table.Column<string>(nullable: false),
-                    QBTH = table.Column<string>(nullable: false),
-                    QTB = table.Column<string>(nullable: false),
-                    QTP = table.Column<string>(nullable: false),
-                    QBTN = table.Column<string>(nullable: false),
-                    QPN = table.Column<string>(nullable: false),
-                    Qcc = table.Column<string>(nullable: false),
-                    QHM = table.Column<string>(nullable: false),
-                    QBC = table.Column<string>(nullable: false),
-                    QNB = table.Column<string>(nullable: false),
-                    QCG = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     CreatedBy = table.Column<int>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedBy = table.Column<int>(nullable: false)
+                    UpdatedDate = table.Column<DateTime>(nullable: true),
+                    UpdatedBy = table.Column<int>(nullable: true),
+                    Code = table.Column<string>(maxLength: 10, nullable: false),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
+                    Q1 = table.Column<decimal>(nullable: true),
+                    Q2 = table.Column<decimal>(nullable: true),
+                    Q3 = table.Column<decimal>(nullable: true),
+                    Q4 = table.Column<decimal>(nullable: true),
+                    Q5 = table.Column<decimal>(nullable: true),
+                    Q6 = table.Column<decimal>(nullable: true),
+                    Q7 = table.Column<decimal>(nullable: true),
+                    Q8 = table.Column<decimal>(nullable: true),
+                    Q9 = table.Column<decimal>(nullable: true),
+                    Q10 = table.Column<decimal>(nullable: true),
+                    Q11 = table.Column<decimal>(nullable: true),
+                    Q12 = table.Column<decimal>(nullable: true),
+                    QTD = table.Column<decimal>(nullable: true),
+                    QGV = table.Column<decimal>(nullable: true),
+                    QBTH = table.Column<decimal>(nullable: true),
+                    QTB = table.Column<decimal>(nullable: true),
+                    QTP = table.Column<decimal>(nullable: true),
+                    QBTN = table.Column<decimal>(nullable: true),
+                    QPN = table.Column<decimal>(nullable: true),
+                    Qcc = table.Column<decimal>(nullable: true),
+                    QHM = table.Column<decimal>(nullable: true),
+                    QBC = table.Column<decimal>(nullable: true),
+                    QNB = table.Column<decimal>(nullable: true),
+                    QCG = table.Column<decimal>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -89,13 +91,13 @@ namespace FSLogistic.Domain.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OtherPay = table.Column<string>(nullable: false),
-                    Note = table.Column<string>(nullable: true),
-                    TotalPrice = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     CreatedBy = table.Column<int>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false),
-                    UpdateBy = table.Column<int>(nullable: false)
+                    UpdatedDate = table.Column<DateTime>(nullable: true),
+                    UpdatedBy = table.Column<int>(nullable: true),
+                    Title = table.Column<string>(maxLength: 256, nullable: true),
+                    Note = table.Column<string>(maxLength: 256, nullable: true),
+                    Total = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,23 +110,23 @@ namespace FSLogistic.Domain.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<int>(nullable: true),
-                    NameReceiver = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    UpdatedDate = table.Column<DateTime>(nullable: true),
+                    UpdatedBy = table.Column<int>(nullable: true),
+                    ReceiverName = table.Column<string>(maxLength: 256, nullable: true),
+                    Address = table.Column<string>(maxLength: 500, nullable: true),
                     District = table.Column<int>(nullable: false),
-                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: false),
                     CustomerNote = table.Column<string>(nullable: true),
-                    AccountId = table.Column<int>(nullable: true),
-                    TotalPrice = table.Column<string>(nullable: true),
-                    ShippingFee = table.Column<string>(nullable: true),
-                    AdvanceMoney = table.Column<string>(nullable: true),
+                    Total = table.Column<decimal>(nullable: false),
+                    Fee = table.Column<decimal>(nullable: false),
+                    AdvanceMoney = table.Column<decimal>(nullable: false),
                     Status = table.Column<int>(nullable: false),
                     StaffNote = table.Column<string>(nullable: true),
                     DoneDate = table.Column<DateTime>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(nullable: false),
-                    UpdatedBy = table.Column<int>(nullable: false)
+                    CustomerId = table.Column<int>(nullable: false),
+                    AccountId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -134,13 +136,13 @@ namespace FSLogistic.Domain.Migrations
                         column: x => x.AccountId,
                         principalTable: "Account",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bill_Customer_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customer",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
