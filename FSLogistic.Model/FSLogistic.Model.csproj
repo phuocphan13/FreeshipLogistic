@@ -9,4 +9,7 @@
     <ProjectReference Include="..\FSLogistic.Core\FSLogistic.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Account\" />
+  </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FSLogistic.Domain
 {
-    public class SeedData
+    public class SeedData : IDisposable
     {
         public void SeedDataForInitialize(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,10 @@ namespace FSLogistic.Domain
                     Data = "333 Trần Hưng Đạo, Quận 1"
                 },
             };
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

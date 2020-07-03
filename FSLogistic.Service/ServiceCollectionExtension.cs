@@ -2,7 +2,6 @@
 using FSLogistic.Domain;
 using FSLogistic.Domain.UoW;
 using FSLogistic.Service.Product;
-using FSLogistic.Service.TestFlow;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -18,7 +17,6 @@ namespace FSLogistic.Service
             services.ConfigureDomain(configuration);
 
             services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<ITestFlowService,TestFlowService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

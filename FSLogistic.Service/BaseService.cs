@@ -18,9 +18,10 @@ namespace FSLogistic.Service
         
         private readonly IHttpContextAccessor _context;
         
-        private readonly IRepository<Account> _accountRepository;
+        protected readonly IRepository<Domain.Models.Account> _accountRepository;
 
-        public BaseService(IPrincipal principal, IHttpContextAccessor context, IRepository<Account> accountRepository)
+        public BaseService(IPrincipal principal, IHttpContextAccessor context,
+            IRepository<Domain.Models.Account> accountRepository)
         {
             _principal = principal as ClaimsPrincipal;
             _context = context;
@@ -29,7 +30,7 @@ namespace FSLogistic.Service
 
         protected string CurrentUserGUID => Principal.GetCurrentUserGUID(_context);
 
-        protected Account User => GetUser();
+        protected Domain.Models.Account User => GetUser();
 
         protected ClaimsPrincipal Principal
         {
@@ -46,7 +47,7 @@ namespace FSLogistic.Service
             return DateTime.Now;
         }
 
-        protected Account GetUser()
+        protected Domain.Models.Account GetUser()
         {
             var account = _accountRepository.GetAll().FirstOrDefault(x => x.Guid == Guid.Parse(CurrentUserGUID));
             return account;

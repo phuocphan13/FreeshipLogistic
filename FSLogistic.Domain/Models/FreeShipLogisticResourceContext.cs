@@ -33,13 +33,10 @@ namespace FSLogistic.Domain.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Product>(entity =>
-            //{
-            //    entity.Property(e => e.Name)
-            //        .HasMaxLength(100)
-            //        .IsUnicode(false);
-            //});
-            //OnModelCreatingPartial(modelBuilder);
+            using(var seedDataObject = new SeedData())
+            {
+                seedDataObject.SeedDataForInitialize(modelBuilder);
+            }
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
