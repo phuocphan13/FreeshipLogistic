@@ -8,7 +8,6 @@ const appRoutes: Routes = [
         loadChildren: './shipper/shipper.module#ShipperModule'
     },
     {
-
         path: 'admin',
         canActivate: [AuthorizeGuard],
         loadChildren: './admin/admin.module#AdminModule'
