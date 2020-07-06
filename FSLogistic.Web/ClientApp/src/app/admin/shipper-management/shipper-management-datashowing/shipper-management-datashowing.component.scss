@@ -1,0 +1,53 @@
+.data-row {
+
+    float: left;
+    width: 100%;
+    background-color: rgb(251, 251, 250);
+    display: flex;
+    font-weight: 500;
+    font-size: 20px;
+    height: fit-content;
+    flex-direction: row;
+
+    .shipper-id {
+        padding:30px;
+        width: 250px;
+        margin-left: 100px;
+    }
+
+    .shipper-name {
+        width: 250px;
+        padding:30px;
+        margin-left: 75px;
+    }
+
+    .shipper-username {
+        width: 250px;
+        padding:30px;
+        margin-left: 75px;
+    }
+
+    .shipper-password {
+        width: 250px;
+        padding:30px;
+        margin-left: 75px;
+    }
+
+    .title{
+        margin-left: 70px;
+    }
+}
+
+.alt {
+    background-color: rgb(248, 246, 246);
+}
+
+.shipper-data-showing-container {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display:flex;
+    flex-direction: column;
+}
+

@@ -1,0 +1,61 @@
+<div class="shipper-data-showing-container">
+    <div class="data-row alt">
+        <div class="shipper-id title">
+            <h4>
+                Code Shipper
+            </h4>          
+        </div>
+        <div class="shipper-name title">
+            <h4>
+                Tên shipper
+            </h4>
+        </div>
+        <div class="shipper-username title">
+            <h4>
+                Tài khoản
+            </h4>
+        </div>
+        <div class="shipper-password title">
+            <h4>
+                Password
+            </h4>
+        </div>
+    </div>
+    <div *ngFor="let item of listShipper; let i=index">
+        <div *ngIf="i%2==0; else altRow">
+            <div class=" data-row">
+                <div class="shipper-id">
+                    {{item.id}}
+                </div>
+                <div class="shipper-name">
+                    {{item.name}}
+                </div>
+                <div class="shipper-username">
+                    {{item.username}}
+                </div>
+                <div class="shipper-username">
+                    {{item.password}}
+                </div>
+            </div>
+        </div>
+
+        <ng-template #altRow>
+            <div class=" data-row alt">
+                <div class="shipper-id">
+                    {{item.id}}
+                </div>
+                <div class="shipper-name">
+                    {{item.name}}
+                </div>
+                <div class="shipper-username">
+                    {{item.username}}
+                </div>
+                <div class="shipper-username">
+                    {{item.password}}
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+
+</div>
