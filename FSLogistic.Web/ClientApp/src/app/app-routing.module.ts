@@ -1,8 +1,6 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { AuthorizeGuard } from "src/api-authorization/authorize.guard";
-
-
 const appRoutes: Routes = [
     {
         path: 'shipper',
@@ -15,9 +13,6 @@ const appRoutes: Routes = [
         canActivate: [AuthorizeGuard],
         loadChildren: './admin/admin.module#AdminModule'
     },
-
-
-
 ];
 
 @NgModule({
