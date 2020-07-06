@@ -9,6 +9,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { ServiceModule } from 'src/core/services/service.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module'
+import { ShipperModule } from './shipper/shipper.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AdminModule } from './admin/admin.module'
     AppRoutingModule,
 
     AdminModule,
+    ShipperModule,
 
     ApiAuthorizationModule,
     ServiceModule,
