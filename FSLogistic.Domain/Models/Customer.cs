@@ -53,7 +53,7 @@ namespace FSLogistic.Domain.Models
 
         public decimal? QPN { get; set; }
 
-        public decimal? Qcc { get; set; }
+        public decimal? QCC { get; set; }
 
         public decimal? QHM { get; set; }
 
