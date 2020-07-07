@@ -3,7 +3,7 @@ namespace FSLogistic.Model.Account
 {
     public class AccountCreateModel
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public string LastName { get; set; }
 

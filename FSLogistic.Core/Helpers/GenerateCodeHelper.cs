@@ -12,7 +12,7 @@ namespace FSLogistic.Core.Helpers
 
         public string GenerateCode(string firstName, string lastName, IEnumerable<string> listCodes)
         {
-            var code = $"{firstName.ToUpper()}{lastName.Substring(2).ToUpper()}";
+            var code = $"{firstName.ToUpper()}{lastName.Substring(0, 2).ToUpper()}";
             bool firstCheck = true;
             while(listCodes.Any(x => x == code))
             {
