@@ -1,0 +1,51 @@
+<div class="title">Customer</div>
+<div>
+    <app-customer-management-toolbar></app-customer-management-toolbar>
+</div>
+<div>
+    <div class="table-container table table-striped">
+        <table>
+
+            <thead>
+                <tr class="row-head">
+                    <th *ngFor="let item of listHeaders">{{item}}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="row-body" [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1"
+                    *ngFor="let item of listCustomers; index as i">
+                    <td class="td-body">{{i+1}}</td>
+                    <td class="td-body">{{item.code}}</td>
+                    <td class="td-body">{{item.name}}</td>
+                    <td class="td-body">{{item.q1}}đ</td>
+                    <td class="td-body">{{item.q2}}đ</td>
+                    <td class="td-body">{{item.q3}}đ</td>
+                    <td class="td-body">{{item.q4}}đ</td>
+                    <td class="td-body">{{item.q5}}đ</td>
+                    <td class="td-body">{{item.q6}}đ</td>
+                    <td class="td-body">{{item.q7}}đ</td>
+                    <td class="td-body">{{item.q8}}đ</td>
+                    <td class="td-body">{{item.q9}}đ</td>
+                    <td class="td-body">{{item.q10}}đ</td>
+                    <td class="td-body">{{item.q11}}đ</td>
+                    <td class="td-body">{{item.q12}}đ</td>
+                    <td class="td-body">{{item.qtd}}đ</td>
+                    <td class="td-body">{{item.qgv}}đ</td>
+                    <td class="td-body">{{item.qbth}}đ</td>
+                    <td class="td-body">{{item.qtb}}đ</td>
+                    <td class="td-body">{{item.qtp}}đ</td>
+                    <td class="td-body">{{item.qbtn}}đ</td>
+                    <td class="td-body">{{item.qpn}}đ</td>
+                    <td class="td-body">{{item.qcc}}đ</td>
+                    <td class="td-body">{{item.qhm}}đ</td>
+                    <td class="td-body">{{item.qbc}}đ</td>
+                    <td class="td-body">{{item.qnb}}đ</td>
+                    <td class="td-body">{{item.qcg}}đ</td>
+                    <button class="button-update">Update</button>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
