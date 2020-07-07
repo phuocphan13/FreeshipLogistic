@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FSLogistic.Domain.Models;
+using FSLogistic.Model.Customer;
 using FSLogistic.Model.TestFlowModel;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace FSLogistic.Service
         {
             //CreateMap<Domain.Models.Owner, OwnerModalModel>().ReverseMap();
             CreateMap<TestFlowCreateModel, Summary>();
+            CreateMap<CustomerModel, Domain.Models.Customer>().ReverseMap();
         }
     }
 }
