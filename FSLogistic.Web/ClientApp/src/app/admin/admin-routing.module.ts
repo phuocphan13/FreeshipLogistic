@@ -4,11 +4,11 @@ import { AuthorizeGuard } from "src/api-authorization/authorize.guard";
 import { AdminComponent } from "./admin.component";
 import { AdminBillComponent } from "./admin-bill/admin-bill.component";
 import { ShipperManagementComponent } from "./shipper-management/shipper-management.component";
+import { CustomerManagementComponent } from "./customer-management/customer-management.component";
 
 const routes: Routes = [
     {
         path: 'admin',
-        canActivateChild: [AuthorizeGuard],
         component: AdminComponent,
         children:[
             {
@@ -18,6 +18,10 @@ const routes: Routes = [
             {
                 path:'shipper-management',
                 component:ShipperManagementComponent,
+            },
+            {
+                path:'customer-management',
+                component:CustomerManagementComponent,
             },
         ]
     },
