@@ -13,9 +13,6 @@ namespace FSLogistic.Domain.Models
         public string Code { get; set; }
 
         [Required]
-        public int UserId { get; set; }
-
-        [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
 

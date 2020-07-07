@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using FSLogistic.Service.Account;
+using FSLogistic.Model.Account;
 
 namespace FSLogistic.Web.Areas.Identity.Pages.Account
 {
@@ -24,17 +26,20 @@ namespace FSLogistic.Web.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IAccountService _accountService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IAccountService accountService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _accountService = accountService;
         }
 
         [BindProperty]
@@ -79,6 +84,18 @@ namespace FSLogistic.Web.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    var createAccount = await _accountService.Insert(new AccountCreateModel()
+                    {
+                        UserId = user.Id,
+                        LastName = "Lucifer",
+                        FirstName = "Lucifer"
+                    });
+
+                    if(!createAccount)
+                    {
+                        return Page();
+                    }
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
