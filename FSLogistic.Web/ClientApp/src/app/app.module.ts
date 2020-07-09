@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module'
 import { ShipperModule } from './shipper/shipper.module';
 import { AppCommonModule } from './common/app-common.module';
+import { ModalsModule } from './modals/modals.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,9 @@ import { AppCommonModule } from './common/app-common.module';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+
+    ModalsModule,
+    ModalModule.forRoot(),
 
     AppCommonModule,
 
