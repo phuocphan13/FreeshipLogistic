@@ -7,7 +7,6 @@ import { ShipperManagementComponent } from "./shipper-management.component";
 const routes: Routes = [
     {
         path: 'shipper-management',
-        canActivateChild: [AuthorizeGuard],
         component: ShipperManagementComponent,
         children:[
             {

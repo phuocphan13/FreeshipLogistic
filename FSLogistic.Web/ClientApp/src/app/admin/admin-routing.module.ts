@@ -8,7 +8,6 @@ import { ShipperManagementComponent } from "./shipper-management/shipper-managem
 const routes: Routes = [
     {
         path: 'admin',
-        canActivateChild: [AuthorizeGuard],
         component: AdminComponent,
         children:[
             {
