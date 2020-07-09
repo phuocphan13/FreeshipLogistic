@@ -15,26 +15,18 @@
                 Tài khoản
             </h4>
         </div>
-        <div class="shipper-password title">
-            <h4>
-                Password
-            </h4>
-        </div>
     </div>
     <div *ngFor="let item of listShipper; let i=index">
         <div *ngIf="i%2==0; else altRow">
             <div class=" data-row">
                 <div class="shipper-id">
-                    {{item.id}}
+                    {{item.code}}
                 </div>
                 <div class="shipper-name">
                     {{item.name}}
                 </div>
                 <div class="shipper-username">
-                    {{item.username}}
-                </div>
-                <div class="shipper-username">
-                    {{item.password}}
+                    {{item.userName}}
                 </div>
             </div>
         </div>
@@ -42,16 +34,13 @@
         <ng-template #altRow>
             <div class=" data-row alt">
                 <div class="shipper-id">
-                    {{item.id}}
+                    {{item.code}}
                 </div>
                 <div class="shipper-name">
                     {{item.name}}
                 </div>
                 <div class="shipper-username">
-                    {{item.username}}
-                </div>
-                <div class="shipper-username">
-                    {{item.password}}
+                    {{item.userName}}
                 </div>
             </div>
         </ng-template>
