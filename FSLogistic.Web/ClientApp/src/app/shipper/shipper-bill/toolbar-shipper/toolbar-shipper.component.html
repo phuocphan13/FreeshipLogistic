@@ -1,0 +1,14 @@
+<div class="tool-bar">
+    <div class="container">
+        <input placeholder="Datepicker" class="form-control input-date" bsDatepicker [(ngModel)]="date"
+            bindvalue="date" required oninput="validity.valid||(value='');" onkeydown="return false">
+
+        <ng-select class="dropdown" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
+            [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn trạng thái"></ng-select>
+
+        <input type="text" class="form-control input-search" placeholder="Recipient's username"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+
+        <button class="btn btn-outline-secondary button" type="button" id="button-addon2">Button</button>
+    </div>
+</div>

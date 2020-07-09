@@ -1,0 +1,38 @@
+$basic-margin: 50px;
+$text-fontweight: 600;
+$width: 220px;
+$height: 36px;
+
+.tool-bar {
+    margin-bottom: 15px;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        
+        .input-date {
+            font-weight: $text-fontweight;            
+            width: $width;
+            height: $height;
+        }
+
+        .dropdown {
+            width: $width;
+            margin-left: $basic-margin;
+            font-weight: $text-fontweight;
+        }
+
+        .input-search {
+            margin-left: $basic-margin;
+            font-weight: $text-fontweight;
+            width: $width;
+            height: $height;
+        }
+
+        .button {
+            height: $height;
+        }
+        
+    }
+}
+
