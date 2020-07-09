@@ -1,0 +1,19 @@
+<div class="tool-bar">
+    <div class="container">
+        <input placeholder="Datepicker" class="form-control input-date" bsDatepicker [(ngModel)]="date" bindvalue="date"
+            required oninput="validity.valid||(value='');" onkeydown="return false">
+
+        <ng-select class="dropdown" [searchable]="true" [items]="listCustomer" bindLabel="name" bindValue="id"
+            [(ngModel)]="customerId" [(ngModel)]="pickedCustomer" placeholder="Chọn Khách hàng"></ng-select>
+
+        <ng-select class="dropdown" [searchable]="true" [items]="listStaff" bindLabel="name" bindValue="id"
+            [(ngModel)]="staffId" [(ngModel)]="pickedStaff" placeholder="Chọn Nhân viên"></ng-select>
+
+        <ng-select class="dropdown" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
+            [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn Trạng thái"></ng-select>
+
+        <button class="btn btn-outline-secondary button" type="button" id="button-addon2">Xuất Excel</button>
+
+        <button class="btn btn-outline-secondary button" type="button" id="button-addon2">Thêm đơn</button>
+    </div>
+</div>
