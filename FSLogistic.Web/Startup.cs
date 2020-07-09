@@ -19,6 +19,8 @@ using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using FSLogistic.Domain.Log;
+using IdentityServer4.Services;
+using FSLogistic.Web.Profile;
 
 namespace FSLogistic.Web
 {
@@ -82,6 +84,8 @@ namespace FSLogistic.Web
             services.AddRazorPages();
 
             services.ConfigureService(Configuration);
+
+            services.AddScoped<IProfileService, ProfileService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
