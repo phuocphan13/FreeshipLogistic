@@ -2,6 +2,7 @@
 using FSLogistic.Domain;
 using FSLogistic.Domain.UoW;
 using FSLogistic.Service.Account;
+using FSLogistic.Service.Customer;
 using FSLogistic.Service.Product;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,7 @@ namespace FSLogistic.Service
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IAccountService, AccountService>();
 
 

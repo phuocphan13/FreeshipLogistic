@@ -1,5 +1,4 @@
-export class Customer {
-    id: number;
+export class AddCustomer {
     code: string;
     name: string;
     q1: number;

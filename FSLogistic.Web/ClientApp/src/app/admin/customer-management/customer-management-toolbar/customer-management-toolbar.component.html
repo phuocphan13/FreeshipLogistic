@@ -1,0 +1,13 @@
+<div class="menu">
+
+    <button class="menu-item button-create" (click)="onClickCreate()">Create</button>
+
+    <select class="menu-item" id="type" name="type">
+        <option *ngFor ="let item of combobox">{{item}}</option>
+    </select>
+
+    <input class="menu-item" type="text" id="kword" name="keyword" placeholder="Your Keyword..">
+
+    <button class="menu-item button-search">Search</button>
+
+</div>
