@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
-import { AuthorizeGuard } from "src/api-authorization/authorize.guard";
 import { ShipperManagementDatashowingComponent } from "./shipper-management-datashowing/shipper-management-datashowing.component";
 import { ShipperManagementComponent } from "./shipper-management.component";
 
