@@ -1,5 +1,4 @@
 .data-row {
-
     float: left;
     width: 100%;
     background-color: rgb(251, 251, 250);
@@ -10,31 +9,24 @@
     flex-direction: row;
 
     .shipper-id {
-        padding:30px;
-        width: 250px;
-        margin-left: 100px;
+        padding: 30px;
+        width: 33%;
+        margin-left: 0px;
+        text-align: center;
     }
 
     .shipper-name {
-        width: 250px;
-        padding:30px;
-        margin-left: 75px;
+        width: 33%;
+        padding: 30px;
+        text-align: center;
+        margin-left: 0px;
     }
 
     .shipper-username {
-        width: 250px;
-        padding:30px;
-        margin-left: 75px;
-    }
-
-    .shipper-password {
-        width: 250px;
-        padding:30px;
-        margin-left: 75px;
-    }
-
-    .title{
-        margin-left: 100px;
+        width: 33%;
+        text-align: center;
+        padding: 30px;
+        margin-left: 0px;
     }
 }
 
@@ -47,7 +39,6 @@
     height: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
-
