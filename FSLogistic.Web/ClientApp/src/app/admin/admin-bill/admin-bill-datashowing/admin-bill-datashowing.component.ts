@@ -10,7 +10,8 @@ export class AdminBillDatashowingComponent implements OnInit {
   listHeaders = ["STT", "Mã bill", "Mã Khách hàng", "Tên người nhận",
     "Địa chỉ", "Quận", "SĐT", "Ghi chú của khách hàng", "Nhân viên",
     "Tổng thu", "Phí", "Tiền ứng", "Trạng thái", "Ghi chú nhân viên", "Ngày báo phát", ""];
-  listAdmins = [
+    
+  billAdmins = [
     {
       code: 'FS27042022',
       customer: 'KHOGACHIBUOI',

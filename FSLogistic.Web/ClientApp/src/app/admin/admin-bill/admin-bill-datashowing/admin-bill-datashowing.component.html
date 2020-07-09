@@ -1,53 +1,38 @@
 <app-toolbar-admin></app-toolbar-admin>
 
 <div class="body-admin">
-    <table class="table table-container table-bordered">
-        <thead>
-            <tr>
-                <th *ngFor="let column of listHeaders; index as i" class="cell-border format-text-center header">
-                    {{column}}
-                </th>
-            </tr>
-        </thead>
-        <tbody class="table table-fixed">
-            <tr [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1" *ngFor="let item of listAdmins; index as i">
-                <th class="cell-border format-text-center">{{i+1}}</th>
-                <td class="cell-border format-text-center">{{item.code}}</td>
-                <td class="cell-border format-text-center">{{item.customer}}</td>
-                <td class="cell-border format-text-center">{{item.receiverName}}</td>
-                <td class="cell-border format-text-center">{{item.address}}</td>
-                <td class="cell-border format-text-center">{{item.district}}</td>
-                <td class="cell-border format-text-center">{{item.phoneNumber}}</td>
-                <td class="cell-border format-text-center">{{item.customerNote}}</td>
-                <td class="cell-border format-text-center">{{item.staffName}}</td>
-                <td class="cell-border format-text-center">{{item.total}}</td>
-                <td class="cell-border format-text-center">{{item.fee}}</td>
-                <td class="cell-border format-text-center">{{item.advanceMoney}}</td>
-                <td class="cell-border format-text-center">{{item.status}}</td>
-                <td class="cell-border format-text-center">{{item.staffNote}}</td>
-                <td class="cell-border format-text-center">{{item.doneDate}}</td>
-                <td class="cell-border format-text-center action-icon-container">
-                    <i class="fas fa-edit" (click)="onClickEdit(item)"></i>
-                    <i class="fas fa-trash-alt" (click)="onClickDelete(item)"></i>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<table class="table table-extra table-borderless">
-    <tbody>
+  <table class="table table-container table-bordered">
+    <thead>
       <tr>
-        <th>Tổng tiền ứng</th>
-        <td class="format-text-center">2.567.000 VNĐ</td>        
-      </tr>     
-      <tr>
-        <th>Tổng thu</th>
-        <td class="format-text-center">3.876.000 VNĐ</td>        
-      </tr>     
-      <tr>
-        <th>Tổng phí ship</th>
-        <td class="format-text-center">1.500.000 VNĐ</td>        
-      </tr>     
+        <th *ngFor="let column of listHeaders; index as i" class="cell-border format-text-center header">
+          {{column}}
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table table-fixed">
+      <tr [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1" *ngFor="let item of billAdmins; index as i">
+        <th class="cell-border format-text-center">{{i+1}}</th>
+        <td class="cell-border format-text-center">{{item.code}}</td>
+        <td class="cell-border format-text-center">{{item.customer}}</td>
+        <td class="cell-border format-text-center">{{item.receiverName}}</td>
+        <td class="cell-border format-text-center">{{item.address}}</td>
+        <td class="cell-border format-text-center">{{item.district}}</td>
+        <td class="cell-border format-text-center">{{item.phoneNumber}}</td>
+        <td class="cell-border format-text-center">{{item.customerNote}}</td>
+        <td class="cell-border format-text-center">{{item.staffName}}</td>
+        <td class="cell-border format-text-center">{{item.total}}</td>
+        <td class="cell-border format-text-center">{{item.fee}}</td>
+        <td class="cell-border format-text-center">{{item.advanceMoney}}</td>
+        <td class="cell-border format-text-center">{{item.status}}</td>
+        <td class="cell-border format-text-center">{{item.staffNote}}</td>
+        <td class="cell-border format-text-center">{{item.doneDate}}</td>
+        <td class="cell-border format-text-center action-icon-container">
+          <i class="fas fa-edit" (click)="onClickEdit(item)"></i>
+          <i class="fas fa-trash-alt" (click)="onClickDelete(item)"></i>
+        </td>
+      </tr>
     </tbody>
   </table>
+</div>
 
+<app-processed-data></app-processed-data>

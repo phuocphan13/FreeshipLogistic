@@ -1,0 +1,78 @@
+$width: 200px;
+$height: 36px;
+$margin-top: 25px;
+$text-fontweight: 600;
+$padding-top: 5px;
+$border: solid 1px black;
+$text-align: center;
+
+.container {
+    display: flex;
+    flex-direction: row;
+
+    .cell1 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        border-right: $border;
+        border-top: $border;
+        border-left: $border;
+    }
+
+    .cell2 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        text-align: $text-align;
+        border-top: $border;
+        border-right: $border;
+    }
+
+    .cell3 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        border-right: $border;
+        border-top: $border;
+        border-left: $border;
+    }
+
+    .cell4 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        text-align: $text-align;
+        border-top: $border;
+        border-right: $border;
+    }
+
+    .cell5 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        border-right: $border;
+        border-left: $border;
+        border-top: $border;
+        border-bottom: $border;
+    }
+
+    .cell6 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        text-align: $text-align;
+        border-top: $border;
+        border-bottom: $border;
+        border-right: $border;
+    }
+}
+
+.procesed-data {
+    margin-top: $margin-top;
+}
