@@ -24,8 +24,8 @@ namespace FSLogistic.Web.MiddleWares
             if (identity != null)
             {
                 IEnumerable<Claim> claims = identity.Claims;
-                // or
-                //var claim = identity.FindFirst("ClaimName").Value;
+                //// or
+                ///var claim = identity.FindFirst("ClaimName").Value;
             }
             await _next(context);
         }

@@ -32,7 +32,7 @@ namespace FSLogistic.Service.Account
                 Guid = Guid.Parse(accountCreate.UserId),
             };
 
-            using(var generateCodeHelper = new GenerateCodeHelper())
+            using (var generateCodeHelper = new GenerateCodeHelper())
             {
                 account.Code = generateCodeHelper.GenerateCode(account.FirstName, account.LastName, listCodes);
             }

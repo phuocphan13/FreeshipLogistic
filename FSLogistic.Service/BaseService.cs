@@ -15,9 +15,9 @@ namespace FSLogistic.Service
     public class BaseService
     {
         private ClaimsPrincipal _principal;
-        
+
         private readonly IHttpContextAccessor _context;
-        
+
         protected readonly IRepository<Domain.Models.Account> _accountRepository;
 
         public BaseService(IPrincipal principal, IHttpContextAccessor context,
@@ -39,6 +39,19 @@ namespace FSLogistic.Service
                 if (_principal.Identity == null || string.IsNullOrEmpty(_principal.Identity.Name))
                     _principal = _context.HttpContext.User;
                 return _principal;
+            }
+        }
+
+        protected string Email
+        {
+            get
+            {
+                if (_context.HttpContext != null && _context.HttpContext.User.Claims.Count() > 0)
+                {
+                    var identity = _context.HttpContext.User.Identity as ClaimsIdentity;
+                    return identity.FindFirst("Email").Value.ToString();
+                }
+                return null;
             }
         }
 
