@@ -15,7 +15,8 @@ export class CustomerManagementDatashowingComponent implements OnInit {
     "Q7", "Q8", "Q9", "Q10", "Q11", "Q12", "QTD", "QGV", "QBTH", "QTB", "QTP", "QBTN", "QPN", "QCC", "QHM", "QBC",
     "QNB", "QCG", " "];
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService,
+    ) { }
 
   ngOnInit() {
     this.customerService.get().subscribe(result => {

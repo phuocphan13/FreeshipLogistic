@@ -10,5 +10,7 @@ namespace FSLogistic.Service.Customer
     public interface ICustomerService
     {
         Task<ResponeModel<List<CustomerModel>>> GetDataCustomer();
+
+        ResponeModel<CustomerModel> CreateCustomer(CustomerModel data);
     }
 }
