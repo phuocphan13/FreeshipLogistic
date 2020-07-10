@@ -7,6 +7,9 @@ import { ToolbarShipperComponent } from './toolbar-shipper/toolbar-shipper.compo
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { pipe } from 'rxjs';
+import { MycurrencyPipe } from 'src/app/common/pipes/my-currency-pipe';
+import { PipeModule } from 'src/app/common/pipes/pipe.module';
 
 
 @NgModule({
@@ -21,6 +24,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     FormsModule,
     NgSelectModule,    
     BsDatepickerModule.forRoot(),
+    PipeModule,
   ],
   exports: [
     ShipperBillComponent,

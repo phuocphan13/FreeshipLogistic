@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Bill_ShipperService } from 'src/core/services/bill_shipper.service';
+import { BillShipper } from 'src/core/models/bill_shipper.model';
+import { ResponeStatusEnum } from 'src/core/models/shared/respone.model';
 
 @Component({
   selector: 'app-shipper-bill-datashowing',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shipper-bill-datashowing.component.scss']
 })
 export class ShipperBillDatashowingComponent implements OnInit {
+  listbillShipper: BillShipper[] = [];
 
-  constructor() { }
+  constructor(private billShipperService: Bill_ShipperService) { }
 
   ngOnInit() {
+    this.billShipperService.get().subscribe(result => {
+      console.log(result);
+      if (result.responeStatus == ResponeStatusEnum.Successed) {
+        this.listbillShipper = result.data;
+      }
+    })
   }
 
   listHeaders = ["STT", "Mã bill", "Mã Khách hàng", "Tên người nhận", "Địa chỉ", "Quận", "SĐT", "Ghi chú của khách hàng",
