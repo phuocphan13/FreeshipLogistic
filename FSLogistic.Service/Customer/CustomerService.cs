@@ -39,23 +39,23 @@ namespace FSLogistic.Service.Customer
             }
         }
 
-        public ResponeModel<CustomerModel> CreateCustomer(CustomerModel data)
+        public ResponeModel<AddCustomerModel> CreateCustomer(AddCustomerModel data)
         {
             if (data == null)
             {
-                return SetResponeData<CustomerModel>("Thêm Thất Bại", ResponeStatusEnum.Failed, null);
+                return SetResponeData<AddCustomerModel>("Thêm Thất Bại", ResponeStatusEnum.Failed, null);
             }
             else
             {
-                var customer = _mapper.Map<CustomerModel, Domain.Models.Customer>(data);
+                var customer = _mapper.Map<AddCustomerModel, Domain.Models.Customer>(data);
                 AddInfoDataForEntity(customer, true);
                 _customerRepository.InsertAsync(customer);
                 bool isSuccessed = _unitOfWork.SaveChanges();
                 if (!isSuccessed)
                 {
-                    return SetResponeData<CustomerModel>("Thêm Thất Bại", ResponeStatusEnum.Failed, null);
+                    return SetResponeData<AddCustomerModel>("Thêm Thất Bại", ResponeStatusEnum.Failed, null);
                 }
-                return SetResponeData<CustomerModel>("Thêm Thành Công", ResponeStatusEnum.Successed, null);
+                return SetResponeData<AddCustomerModel>("Thêm Thành Công", ResponeStatusEnum.Successed, null);
             }
         }
     }
