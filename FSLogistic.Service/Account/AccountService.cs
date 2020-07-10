@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using AutoMapper;
 using FSLogistic.Core.Helpers;
 using FSLogistic.Core.Repositories;
 using FSLogistic.Core.UoW;
@@ -17,7 +18,7 @@ namespace FSLogistic.Service.Account
 
         public AccountService(IPrincipal principal, IHttpContextAccessor context,
             IRepository<Domain.Models.Account> accountRepository,
-            IUnitOfWork unitOfWork) : base(principal, context, accountRepository)
+            IUnitOfWork unitOfWork,IMapper mapper) : base(principal, context, accountRepository,unitOfWork,mapper)
         {
             _unitOfWork = unitOfWork;
         }

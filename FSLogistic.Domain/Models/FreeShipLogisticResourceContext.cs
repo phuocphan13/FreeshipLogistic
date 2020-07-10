@@ -33,10 +33,10 @@ namespace FSLogistic.Domain.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            using(var seedDataObject = new SeedData())
-            {
-                seedDataObject.SeedDataForInitialize(modelBuilder);
-            }
+            //using(var seedDataObject = new SeedData())
+            //{
+            //    seedDataObject.SeedDataForInitialize(modelBuilder);
+            //}
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
