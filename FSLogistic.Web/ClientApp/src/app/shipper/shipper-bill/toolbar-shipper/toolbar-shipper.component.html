@@ -1,14 +1,14 @@
 <div class="tool-bar">
     <div class="container">
-        <input placeholder="Tìm theo ngày/ tháng" class="form-control input-date" bsDatepicker [(ngModel)]="date" bindvalue="date"
-            required oninput="validity.valid||(value='');" onkeydown="return false">
-
-        <ng-select class="dropdown" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
-            [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn trạng thái"></ng-select>
-
-        <ng-select class="dropdown" [searchable]="true" [items]="listCustomer" bindLabel="name" bindValue="id"
-            [(ngModel)]="customerId" [(ngModel)]="pickedCustomer" placeholder="Chọn Khách hàng"></ng-select>
-
-        <button class="btn btn-outline-secondary button" type="button" id="button-addon2">Tìm kiếm</button>
+        <ng-select class="select-search" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
+            [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn kiểu tìm kiếm"></ng-select>
+        <div class="input-group">
+            <input type="text" class="form-control input-search" placeholder="Tìm kiếm..."
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-secondary button" type="button" id="button-addon2">
+                    <i class="fa fa-search"></i></button>
+            </div>
+        </div>
     </div>
 </div>

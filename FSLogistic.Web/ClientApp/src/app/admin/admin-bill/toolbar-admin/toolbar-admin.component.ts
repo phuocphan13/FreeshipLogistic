@@ -11,34 +11,12 @@ export class ToolbarAdminComponent implements OnInit {
   pickedStatus: any;
 
   listStatus: any = [
-    { id: 1, name: 'Rồi' },
-    { id: 2, name: 'Chưa' },
-    { id: 3, name: 'Chuyển hoàn' },
+    { id: 1, name: 'Tìm kiếm theo ngày' },
+    { id: 2, name: 'Tìm kiếm theo trạng thái' },
+    { id: 3, name: 'Tìm kiếm theo tên khách hàng' },
+    { id: 4, name: 'Tìm kiếm theo tên nhân viên' },
   ];
 
-  customerId: any;
-  pickedCustomer: any;
-
-  listCustomer: any = [
-    { id: 1, name: 'NguyenThu' },
-    { id: 2, name: 'KhoGaChiBuoi' },
-    { id: 3, name: 'LeMinh' },
-    { id: 4, name: 'MyTra' },
-    { id: 5, name: 'UyenBetty' },
-    { id: 6, name: 'ThanhVy' },
-  ];
-
-  staffId: any;
-  pickedStaff: any;
-
-  listStaff: any = [
-    { id: 1, name: 'HoangQ2' },
-    { id: 2, name: 'KhanhBC' },
-    { id: 3, name: 'UyenQ10' },
-    { id: 4, name: 'ToanQ12' },
-    { id: 5, name: 'ThoTD' },
-    { id: 6, name: 'MinhQ11' },
-  ]
   constructor() { }
 
   ngOnInit() {

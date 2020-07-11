@@ -14,9 +14,9 @@ export class ToolbarShipperComponent implements OnInit {
   pickedStatus: any;
 
   listStatus: any = [
-    { id: 1, name: 'Rồi' },
-    { id: 2, name: 'Chưa' },
-    { id: 3, name: 'Chuyển hoàn' },
+    { id: 1, name: 'Tìm kiếm theo ngày' },
+    { id: 2, name: 'Tìm kiếm theo trạng thái' },
+    { id: 3, name: 'Tìm kiếm theo tên khách hàng' },
   ];
 
   customerId: any;
