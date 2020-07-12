@@ -1,50 +1,27 @@
-<div class="shipper-data-showing-container">
-    <div class="data-row alt">
-        <div class="shipper-id title">
-            <h4>
-                Code Shipper
-            </h4>          
+<div class="component-container">
+    <div class="component-container-wrapper">
+        <div class="header-row-wrapper">
+            <table>
+                <thead>
+                    <tr class="header-row">
+                        <th class="header-cell column1">Name</th>
+                        <th class="header-cell column2">Email</th>
+                        <th class="header-cell column3">Code</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
-        <div class="shipper-name title">
-            <h4>
-                Tên shipper
-            </h4>
-        </div>
-        <div class="shipper-username title">
-            <h4>
-                Tài khoản
-            </h4>
+
+        <div class="table-content-section" id="style-2">
+            <table>
+                <tbody>
+                    <tr *ngFor="let item of listShipper; let i=index" class=" body">
+                        <td class="text-cell column1">{{item.name}}</td>
+                        <td class="text-cell column2">{{item.userName}}</td>
+                        <td class="text-cell column3">{{item.code}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div *ngFor="let item of listShipper; let i=index">
-        <div *ngIf="i%2==0; else altRow">
-            <div class=" data-row">
-                <div class="shipper-id">
-                    {{item.code}}
-                </div>
-                <div class="shipper-name">
-                    {{item.name}}
-                </div>
-                <div class="shipper-username">
-                    {{item.userName}}
-                </div>
-            </div>
-        </div>
-
-        <ng-template #altRow>
-            <div class=" data-row alt">
-                <div class="shipper-id">
-                    {{item.code}}
-                </div>
-                <div class="shipper-name">
-                    {{item.name}}
-                </div>
-                <div class="shipper-username">
-                    {{item.userName}}
-                </div>
-            </div>
-        </ng-template>
-    </div>
-
-
 </div>
