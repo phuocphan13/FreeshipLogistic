@@ -14,6 +14,7 @@ namespace FSLogistic.Service
         {
             CreateMap<CustomerModel, Domain.Models.Customer>().ReverseMap();
             CreateMap<Bill_ShipperModel, Domain.Models.Bill>().ReverseMap();
+            CreateMap<AddCustomerModel, Domain.Models.Customer>().ReverseMap();
         }
     }
 }

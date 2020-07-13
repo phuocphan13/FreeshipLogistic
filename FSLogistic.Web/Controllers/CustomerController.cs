@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FSLogistic.Model.Customer;
 using FSLogistic.Service.Customer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,13 @@ namespace FSLogistic.Web.Controllers
         public async Task<IActionResult> Get()
         {
             var result = await _customerService.GetDataCustomer();
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public IActionResult Create(AddCustomerModel data)
+        {
+            var result = _customerService.CreateCustomer(data);
             return Ok(result);
         }
     }

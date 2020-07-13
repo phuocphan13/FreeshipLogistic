@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { AddCustomerModalComponent } from 'src/app/modals/add-customer-modal/add-customer-modal.component';
 
 @Component({
   selector: 'app-customer-management-toolbar',
@@ -7,15 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerManagementToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bsModalService: BsModalService,) { }
+  modalRef: BsModalRef
 
-  combobox:any =[
-    "Code","Name","Dist"
+  config: ModalOptions = { class: 'modal-lg' };
+
+  combobox: any = [
+    "Code", "Name", "Dist"
   ];
 
   ngOnInit() {
   }
 
-  onClickCreate(){
+  onClickCreate() {
+    this.modalRef = this.bsModalService.show(AddCustomerModalComponent, this.config)
   }
 }

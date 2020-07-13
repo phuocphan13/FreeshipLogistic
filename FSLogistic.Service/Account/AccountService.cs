@@ -17,7 +17,7 @@ namespace FSLogistic.Service.Account
 
         public AccountService(IPrincipal principal, IHttpContextAccessor context,
             IRepository<Domain.Models.Account> accountRepository,
-            IUnitOfWork unitOfWork, IMapper mapper) : base(principal, context, accountRepository, unitOfWork, mapper)
+            IUnitOfWork unitOfWork) : base(principal, context, accountRepository)
         {
 
         }

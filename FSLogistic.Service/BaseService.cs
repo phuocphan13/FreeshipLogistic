@@ -25,6 +25,9 @@ namespace FSLogistic.Service
         
         protected readonly IRepository<Domain.Models.Account> _accountRepository;
 
+        protected readonly IUnitOfWork _unitOfWork;
+        protected readonly IMapper _mapper;
+
         public BaseService(IPrincipal principal, IHttpContextAccessor context,
             IRepository<Domain.Models.Account> accountRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
@@ -74,6 +77,7 @@ namespace FSLogistic.Service
             modelObject.UpdatedBy = User.Id;
             modelObject.UpdatedDate = GetCurrentDate();
         }
+
         protected ResponeModel<T> SetResponeData<T>(string message, ResponeStatusEnum status, T data) where T : class
         {
             var respone = new ResponeModel<T>

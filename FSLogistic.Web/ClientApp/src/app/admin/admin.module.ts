@@ -5,7 +5,6 @@ import { ShipperManagementModule } from './shipper-management/shipper-management
 import { AdminComponent } from './admin.component'
 import { AdminBillModule } from './admin-bill/admin-bill.module';
 import { CustomerManagementModule } from './customer-management/customer-management.module';
-import { CustomerManagementComponent } from './customer-management/customer-management.component';
 
 @NgModule({
   declarations: [
