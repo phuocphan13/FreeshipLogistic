@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Security.Principal;
 using System.Threading.Tasks;
-using AutoMapper;
 using FSLogistic.Core.Helpers;
 using FSLogistic.Core.Repositories;
 using FSLogistic.Core.UoW;
@@ -14,12 +13,13 @@ namespace FSLogistic.Service.Account
 {
     public class AccountService : BaseService, IAccountService
     {
+        private readonly IUnitOfWork _unitOfWork;
 
         public AccountService(IPrincipal principal, IHttpContextAccessor context,
             IRepository<Domain.Models.Account> accountRepository,
-            IUnitOfWork unitOfWork, IMapper mapper) : base(principal, context, accountRepository, unitOfWork, mapper)
+            IUnitOfWork unitOfWork) : base(principal, context, accountRepository)
         {
-
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<bool> Insert(AccountCreateModel accountCreate)
@@ -33,7 +33,7 @@ namespace FSLogistic.Service.Account
                 Guid = Guid.NewGuid()
             };
 
-            using (var generateCodeHelper = new GenerateCodeHelper())
+            using(var generateCodeHelper = new GenerateCodeHelper())
             {
                 account.Code = generateCodeHelper.GenerateCode(account.FirstName, account.LastName, listCodes);
             }
