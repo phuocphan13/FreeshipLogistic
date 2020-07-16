@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ProcessedDataComponent } from './processed-data/processed-data.component';
+import { PipeModule } from 'src/app/common/pipes/pipe.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ProcessedDataComponent } from './processed-data/processed-data.componen
     AdminBillRoutingModule,
     FormsModule,
     NgSelectModule,    
-    BsDatepickerModule.forRoot(),
+    PipeModule,
   ],
   exports: [
     AdminBillComponent

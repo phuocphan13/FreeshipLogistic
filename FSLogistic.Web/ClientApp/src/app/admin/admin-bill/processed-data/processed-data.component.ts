@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./processed-data.component.scss']
 })
 export class ProcessedDataComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
