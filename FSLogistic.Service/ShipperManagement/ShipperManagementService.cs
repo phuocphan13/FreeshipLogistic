@@ -27,7 +27,7 @@ namespace FSLogistic.Service.ShipperManagement
 
         public async Task<ResponeModel<List<ShipperAccountModel>>> GetListAccount()
         {
-            var listResourceAccountsEntity = await _accountRepository.GetAll().ToListAsync();
+            var listResourceAccountsEntity = await _accountRepository.GetAllListAsync();
             if(listResourceAccountsEntity==null)
             {
                 return SetResponeData<List<ShipperAccountModel>>(ShipperManagementMessage.ErrorMessageLoadData, ResponeStatusEnum.Null, null);
