@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ShipperManagementComponent } from './shipper-management.component';
 import { ShipperManagementDatashowingComponent } from './shipper-management-datashowing/shipper-management-datashowing.component';
 import { ShipperManagementRoutingModule } from './shipper-management-routing.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +13,9 @@ import { ShipperManagementRoutingModule } from './shipper-management-routing.mod
   ],
   imports: [
     CommonModule,
+    NgSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     ShipperManagementRoutingModule,
   ],
   exports: [
