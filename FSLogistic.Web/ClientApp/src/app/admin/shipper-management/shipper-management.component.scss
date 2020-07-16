@@ -1,6 +1,6 @@
 $text-fontweight: 600;
 $basic-margin: 5%;
-$basic-margin: 30px;
+$basic-margin: 60px;
 $text-fontweight: 500;
 $width: 245px;
 $height: 36px;
@@ -8,7 +8,7 @@ $height: 36px;
 .tool-bar {
   margin-top: 20px;
   margin-bottom: 15px;
-  margin-left: 60px;
+  margin-left: 30px;
   .container {
     display: flex;
     flex-direction: row;
@@ -88,7 +88,7 @@ $height: 36px;
   width: 90% !important;
   padding: 1rem 0;
   margin-bottom: 0.5rem;
-  margin-left: $basic-margin;
+  margin-left: 40px;
   white-space: nowrap;
   overflow: hidden;
 }
