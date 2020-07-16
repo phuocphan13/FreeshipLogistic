@@ -33,7 +33,7 @@ namespace FSLogistic.Service.ShipperManagement
                 return SetResponeData<List<ShipperAccountModel>>(ShipperManagementMessage.ErrorMessageLoadData, ResponeStatusEnum.Null, null);
             }
 
-            var listShipperAccountModel = new List<ShipperAccountModel>();
+            var listShipperAccountsModel = new List<ShipperAccountModel>();
             foreach(var item in listResourceAccountsEntity)
             {
                 var accountmodel = new ShipperAccountModel()
@@ -43,10 +43,10 @@ namespace FSLogistic.Service.ShipperManagement
                     UserId = item.UserId,
                     UserName = "hardcode@gmail.com",
                 };
-                listShipperAccountModel.Add(accountmodel);
+                listShipperAccountsModel.Add(accountmodel);
             }          
 
-            return SetResponeData(ShipperManagementMessage.GetSuccessed, ResponeStatusEnum.Successed, listShipperAccountModel);
+            return SetResponeData(ShipperManagementMessage.GetSuccessed, ResponeStatusEnum.Successed, listShipperAccountsModel);
         }
 
 

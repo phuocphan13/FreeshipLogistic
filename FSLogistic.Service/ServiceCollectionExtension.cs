@@ -2,10 +2,13 @@
 using FSLogistic.Domain;
 using FSLogistic.Domain.UoW;
 using FSLogistic.Service.Product;
+using FSLogistic.Service.ShipperManagement;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Text;
 
 namespace FSLogistic.Service
@@ -18,14 +21,14 @@ namespace FSLogistic.Service
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IShipperManagementService,ShipperManagementService>();
 
-
-            //services.AddTransient<IPrincipal>(provider =>
-            //{
-            //    if (provider.GetService<IHttpContextAccessor>().HttpContext != null)
-            //        return provider.GetService<IHttpContextAccessor>().HttpContext.User;
-            //    return null;
-            //});
+            services.AddTransient<IPrincipal>(provider =>
+            {
+                if (provider.GetService<IHttpContextAccessor>().HttpContext != null)
+                    return provider.GetService<IHttpContextAccessor>().HttpContext.User;
+                return null;
+            });
         }
     }
 }
