@@ -1,4 +1,4 @@
-export class BillShipper {
+export class BillShippers {
     id: number;
     customerId: string;
     receiverName: string;
