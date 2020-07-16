@@ -1,32 +1,45 @@
 <app-toolbar-admin></app-toolbar-admin>
 
-<div class="body-admin">
+<div class="body-admin" id="style-2">
   <table class="table table-container table-bordered">
     <thead>
-      <tr>
-        <th *ngFor="let column of listHeaders; index as i" class="cell-border format-text-center header">
-          {{column}}
-        </th>
+      <tr class="cell-{{i+1}}">
+        <th class="header format-text-center cell-1">STT</th>
+        <th class="header format-text-center cell-2">Mã bill</th>
+        <th class="header format-text-center cell-3">Mã khách hàng</th>
+        <th class="header format-text-center cell-4">Tên người nhận</th>
+        <th class="header format-text-center cell-5">Địa chỉ</th>
+        <th class="header format-text-center cell-6">Quận</th>
+        <th class="header format-text-center cell-7">SĐT</th>
+        <th class="header format-text-center cell-8">Ghi chú của khách hàng</th>
+        <th class="header format-text-center cell-9">Nhân viên</th>
+        <th class="header format-text-center cell-10">Tổng thu</th>
+        <th class="header format-text-center cell-11">Phí</th>
+        <th class="header format-text-center cell-12">Tiền ứng</th>
+        <th class="header format-text-center cell-13">Trạng thái</th>
+        <th class="header format-text-center cell-14">Ghi chú nhân viên</th>
+        <th class="header format-text-center cell-15">Ngày báo phát</th>
+        <th class="header format-text-center cell-16"></th>
       </tr>
     </thead>
     <tbody class="table table-fixed">
       <tr [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1" *ngFor="let item of billAdmins; index as i">
-        <th class="cell-border format-text-center">{{i+1}}</th>
-        <td class="cell-border format-text-center">{{item.code}}</td>
-        <td class="cell-border format-text-center">{{item.customer}}</td>
-        <td class="cell-border format-text-center">{{item.receiverName}}</td>
-        <td class="cell-border format-text-center">{{item.address}}</td>
-        <td class="cell-border format-text-center">{{item.district}}</td>
-        <td class="cell-border format-text-center">{{item.phoneNumber}}</td>
-        <td class="cell-border format-text-center">{{item.customerNote}}</td>
-        <td class="cell-border format-text-center">{{item.staffName}}</td>
-        <td class="cell-border format-text-center">{{item.total}}</td>
-        <td class="cell-border format-text-center">{{item.fee}}</td>
-        <td class="cell-border format-text-center">{{item.advanceMoney}}</td>
-        <td class="cell-border format-text-center">{{item.status}}</td>
-        <td class="cell-border format-text-center">{{item.staffNote}}</td>
-        <td class="cell-border format-text-center">{{item.doneDate}}</td>
-        <td class="cell-border format-text-center action-icon-container">
+        <th class="cell-1 cell-border format-text-center">{{i+1}}</th>
+        <td class="cell-2 cell-border format-text-center">{{item.code}}</td>
+        <td class="cell-3 cell-border format-text-center">{{item.customer}}</td>
+        <td class="cell-4 cell-border format-text-center">{{item.receiverName}}</td>
+        <td class="cell-5 cell-border format-text-center">{{item.address}}</td>
+        <td class="cell-6 cell-border format-text-center">{{item.district}}</td>
+        <td class="cell-7 cell-border format-text-center">{{item.phoneNumber | phone}}</td>
+        <td class="cell-8 cell-border format-text-center">{{item.customerNote}}</td>
+        <td class="cell-9 cell-border format-text-center">{{item.staffName}}</td>
+        <td class="cell-10 cell-border format-text-center">{{item.total | mycurrency}}</td>
+        <td class="cell-11 cell-border format-text-center">{{item.fee | mycurrency}}</td>
+        <td class="cell-12 cell-border format-text-center">{{item.advanceMoney | mycurrency}}</td>
+        <td class="cell-13 cell-border format-text-center">{{item.status}}</td>
+        <td class="cell-14 cell-border format-text-center">{{item.staffNote}}</td>
+        <td class="cell-15 cell-border format-text-center">{{item.doneDate}}</td>
+        <td class="cell-16 cell-border format-text-center action-icon-container">
           <i class="fas fa-edit" (click)="onClickEdit(item)"></i>
           <i class="fas fa-trash-alt" (click)="onClickDelete(item)"></i>
         </td>
