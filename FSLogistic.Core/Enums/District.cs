@@ -1,0 +1,27 @@
+﻿public enum District
+{
+    District1 = 1,
+    District2 = 2,
+    District3 = 3,
+    District4 = 4,
+    District5 = 5,
+    District6 = 6,
+    District7 = 7,
+    District8 = 8,
+    District9 = 9,
+    District10 = 10,
+    District11 = 11,
+    District12 = 12,
+    BinhTanDistrict = 13,
+    BinhThanhDistrict = 14,
+    GoVapDistrict = 15,
+    PhuNhuanDistrict = 16,
+    TanBinhDistrict = 17,
+    TanPhuDistrict = 18,
+    ThuDucDistrict = 19,
+    BinhChanhDistrict = 20,
+    CanGioDistrict = 21,
+    CuChiDistrict = 22,
+    HocMonDistrict = 23,
+    NhaBeDistrict = 24
+}

@@ -13,6 +13,8 @@ namespace FSLogistic.Domain
             modelBuilder.Entity<Autocomplete>().HasData(SeedDataForAutoCompleteTable());
 
             modelBuilder.Entity<Customer>().HasData(SeedDataForCustomerTable());
+
+            modelBuilder.Entity<Bill>().HasData(SeedDataForBillTable());
         }
 
         private List<Customer> SeedDataForCustomerTable()
@@ -74,6 +76,80 @@ namespace FSLogistic.Domain
                     Type = AutocompleteType.Address,
                     Data = "333 Trần Hưng Đạo, Quận 1"
                 },
+            };
+        }
+
+        private List<Bill> SeedDataForBillTable()
+        {
+            return new List<Bill>() {
+                new Bill() {
+                    Id = 1,
+                    CreatedDate = new DateTime(2020,7,01),
+                    CreatedBy = 1,
+                    ReceiverName = "Nguyễn Văn A",
+                    Address = "364 Cộng Hòa",
+                    District = (int)District.TanBinhDistrict,
+                    PhoneNumber = "190029280",
+                    CustomerNote = "Hàng dễ bể",
+                    Total = 220000M,
+                    Fee = 15000M,
+                    AdvanceMoney = 5000M,
+                    Status = BillDeliveryStatus.Completed,
+                    StaffNote = "",
+                    CustomerId = 1,
+                    AccountId = 1
+                },
+                new Bill() {
+                    Id = 2,
+                    CreatedDate = new DateTime(2020,7,03),
+                    CreatedBy = 1,
+                    ReceiverName = "Nguyễn Văn B",
+                    Address = "113 Nguyễn Thái Sơn",
+                    District = (int)District.GoVapDistrict,
+                    PhoneNumber = "190029280",
+                    CustomerNote = "Hàng dễ bể",
+                    Total = 220000M,
+                    Fee = 15000M,
+                    AdvanceMoney = 5000M,
+                    Status = BillDeliveryStatus.Completed,
+                    StaffNote = "",
+                    CustomerId = 1,
+                    AccountId = 1
+                },
+                new Bill() {
+                    Id = 3,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = 1,
+                    ReceiverName = "Phạm Thị C",
+                    Address = "364 Cộng Hòa",
+                    District = (int)District.GoVapDistrict,
+                    PhoneNumber = "190029280",
+                    CustomerNote = "Hàng dễ bể",
+                    Total = 220000M,
+                    Fee = 15000M,
+                    AdvanceMoney = 5000M,
+                    Status = BillDeliveryStatus.Picked,
+                    StaffNote = "",
+                    CustomerId = 2,
+                    AccountId = 1
+                },
+                new Bill() {
+                    Id = 4,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = 1,
+                    ReceiverName = "Trần Văn D",
+                    Address = "364 Điện Biên Phủ",
+                    District = (int)District.District1,
+                    PhoneNumber = "190029280",
+                    CustomerNote = "Hàng dễ bể",
+                    Total = 220000M,
+                    Fee = 15000M,
+                    AdvanceMoney = 5000M,
+                    Status = BillDeliveryStatus.Submitted,
+                    StaffNote = "",
+                    CustomerId = 2,
+                    AccountId = 1
+                }
             };
         }
 
