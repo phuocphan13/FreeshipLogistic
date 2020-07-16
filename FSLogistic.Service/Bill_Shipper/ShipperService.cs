@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FSLogistic.Core.Consts;
 using FSLogistic.Core.Repositories;
 using FSLogistic.Core.UoW;
 using FSLogistic.Domain.Models;
@@ -31,12 +32,12 @@ namespace FSLogistic.Service.Bill_Shipper
             var listCustomerEntity = await _billShipperRepository.GetAllListAsync();
             if (listCustomerEntity == null)
             {
-                return SetResponeData<List<Bill_ShipperModel>>("Load Thất Bại", ResponeStatusEnum.Failed, null);
+                return SetResponeData<List<Bill_ShipperModel>>(CustomerMessage.GetFailedMessage, ResponeStatusEnum.Failed, null);
             }
             else
             {
-                var shipper = _mapper.Map<List<Domain.Models.Bill>, List<Bill_ShipperModel>>(listCustomerEntity);
-                return SetResponeData("Load Thành Công", ResponeStatusEnum.Successed, shipper);
+                var shippers = _mapper.Map<List<Domain.Models.Bill>, List<Bill_ShipperModel>>(listCustomerEntity);
+                return SetResponeData(CustomerMessage.GetSuccessedMessage, ResponeStatusEnum.Successed, shippers);
             }
         }
     }

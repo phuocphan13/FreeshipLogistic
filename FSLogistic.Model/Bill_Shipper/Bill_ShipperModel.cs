@@ -7,9 +7,9 @@ namespace FSLogistic.Model.Bill_Shipper
 {
     public class Bill_ShipperModel
     {
-        public string Code { get; set; }
+        public int Id { get; set; }
 
-        public string Customer { get; set; }
+        public string CustomerId { get; set; }
 
         [StringLength(256)]
         public string ReceiverName { get; set; }
