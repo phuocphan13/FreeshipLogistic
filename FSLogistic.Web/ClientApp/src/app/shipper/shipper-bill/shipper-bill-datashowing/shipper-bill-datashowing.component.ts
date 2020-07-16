@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bill_ShipperService } from 'src/core/services/bill_shipper.service';
-import { BillShipper } from 'src/core/models/bill_shipper.model';
+import { BillShippers } from 'src/core/models/bill_shipper.model';
 import { ResponeStatusEnum } from 'src/core/models/shared/respone.model';
 
 @Component({
@@ -9,21 +9,17 @@ import { ResponeStatusEnum } from 'src/core/models/shared/respone.model';
   styleUrls: ['./shipper-bill-datashowing.component.scss']
 })
 export class ShipperBillDatashowingComponent implements OnInit {
-  listbillShipper: BillShipper[] = [];
+  listbillShippers: BillShippers[] = [];
 
   constructor(private billShipperService: Bill_ShipperService) { }
 
   ngOnInit() {
     this.billShipperService.get().subscribe(result => {
-      console.log(result);
       if (result.responeStatus == ResponeStatusEnum.Successed) {
-        this.listbillShipper = result.data;
+        this.listbillShippers = result.data;
       }
     })
   }
-
-  listHeaders = ["STT", "Mã bill", "Mã Khách hàng", "Tên người nhận", "Địa chỉ", "Quận", "SĐT", "Ghi chú của khách hàng",
-    "Tổng thu", "Trạng thái", "Ghi chú nhân viên", "Ngày báo phát", ""];
 
   billShippers = [
     {
@@ -34,7 +30,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: '11',
       phoneNumber: '0909345678',
       customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      total: '108.000 VNĐ',
+      total: '108000',
       status: 'Chưa',
       staffNote: 'Khách không có ở nhà',
       doneDate: '21/04/2020',
@@ -47,7 +43,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: 'Bình Tân',
       phoneNumber: '0909345678',
       customerNote: 'Cho đồng kiểm. Không được thử. Nếu không nhận liên hệ Shop.',
-      total: '185.000 VNĐ',
+      total: '185000',
       status: 'Chưa',
       staffNote: 'Khách không nghe máy',
       doneDate: '21/04/2020',
@@ -60,7 +56,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: '6',
       phoneNumber: '0909345678',
       customerNote: 'Cho khách kiểm tra hàng.',
-      total: '510.000 VNĐ',
+      total: '510000',
       status: 'Chuyển hoàn',
       staffNote: 'Khách không nhận hàng',
       doneDate: '21/04/2020',
@@ -73,7 +69,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: '11',
       phoneNumber: '0909345678',
       customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      total: '108.000 VNĐ',
+      total: '108000',
       status: 'Chưa',
       staffNote: 'Khách không có ở nhà',
       doneDate: '21/04/2020',
@@ -86,7 +82,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: '6',
       phoneNumber: '0909345678',
       customerNote: 'Cho khách kiểm tra hàng.',
-      total: '510.000 VNĐ',
+      total: '510000',
       status: 'Chuyển hoàn',
       staffNote: 'Khách không nhận hàng',
       doneDate: '21/04/2020',
@@ -99,7 +95,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: 'Bình Tân',
       phoneNumber: '0909345678',
       customerNote: 'Cho đồng kiểm. Không được thử. Nếu không nhận liên hệ Shop.',
-      total: '185.000 VNĐ',
+      total: '185000',
       status: 'Chưa',
       staffNote: 'Khách không nghe máy',
       doneDate: '21/04/2020',
@@ -112,7 +108,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: '6',
       phoneNumber: '0909345678',
       customerNote: 'Cho khách kiểm tra hàng.',
-      total: '510.000 VNĐ',
+      total: '510000',
       status: 'Chuyển hoàn',
       staffNote: 'Khách không nhận hàng',
       doneDate: '21/04/2020',
@@ -125,7 +121,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: '11',
       phoneNumber: '0909345678',
       customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      total: '108.000 VNĐ',
+      total: '108000',
       status: 'Chưa',
       staffNote: 'Khách không có ở nhà',
       doneDate: '21/04/2020',
@@ -138,7 +134,7 @@ export class ShipperBillDatashowingComponent implements OnInit {
       district: 'Bình Tân',
       phoneNumber: '0909345678',
       customerNote: 'Cho đồng kiểm. Không được thử. Nếu không nhận liên hệ Shop.',
-      total: '185.000 VNĐ',
+      total: '185000',
       status: 'Chưa',
       staffNote: 'Khách không nghe máy',
       doneDate: '21/04/2020',

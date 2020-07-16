@@ -34,7 +34,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ShipperModule,
 
     ApiAuthorizationModule,
-    ServiceModule,
+    ServiceModule,    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

@@ -1,3 +1,5 @@
+$basic-margin: 5%;
+
 .home-page-container {
   height: 100%;
   margin-left: 5%;
@@ -41,12 +43,16 @@
 
 .show-data-section {
   width: 90%;
-  height: 500px;
-  border: solid 2px black;
+  height: 100%;
   border-radius: 18px;
-  margin-top: 25px;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-top: 35px;
+  margin-left: $basic-margin;
+  margin-right: $basic-margin;
+}
+
+.view-body-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .filter-bar-section {
