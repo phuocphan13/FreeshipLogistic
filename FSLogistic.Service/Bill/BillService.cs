@@ -1,9 +1,12 @@
 ﻿using FSLogistic.Core.Repositories;
 using FSLogistic.Domain.Models;
+using FSLogistic.Model.Shared;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace FSLogistic.Service.Bill
@@ -40,14 +43,15 @@ namespace FSLogistic.Service.Bill
             return bills;
         }
 
-        public async Task<List<Domain.Models.Bill>> SearchByCustomer(string name)
+        public async Task<List<Domain.Models.Bill>> SearchByCustomerName(string name)
         {
-            var bills = await _billRepository.Query(x => SearchString(x.Customer.Name,name)).ToListAsync();
+            var bills = await _billRepository.GetAll().Include(x => x.Customer).Where(x => x.Customer != null && x.Customer.Name.Contains(name)).ToListAsync();
             return bills;
         }
-        public async Task<List<Domain.Models.Bill>> SearchByShipper(string name)
+
+        public async Task<List<Domain.Models.Bill>> SearchByShipperName(string name)
         {
-            var bills = await _billRepository.Query(x => SearchString(x.Account.Name, name)).ToListAsync();
+            var bills = await _billRepository.GetAll().Include(x => x.Account).Where(x => x.Account != null && (x.Account.FirstName.Contains(name) || x.Account.LastName.Contains(name))).ToListAsync();
             return bills;
         }
 
@@ -74,7 +78,7 @@ namespace FSLogistic.Service.Bill
 
             return text.Contains(searchString, StringComparison.CurrentCultureIgnoreCase);
         }
-         
+
 
     }
 }

@@ -20,13 +20,12 @@ namespace FSLogistic.Web.Controllers
 
 
         [HttpGet("GetAll")]
-        //[HttpGet]
         public async Task<IActionResult> Get()
         {
             var bills = await _billService.Get();
             return Ok(bills);
         }
-        // api/bill/1
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -34,7 +33,6 @@ namespace FSLogistic.Web.Controllers
             return Ok(bills);
         }
 
-        // api/bill/SearchByCustomerId/1
         [HttpGet("SearchByCustomerId/{customerId}")]
         public async Task<IActionResult> SearchByCustomerId(int customerId)
         {
@@ -42,11 +40,24 @@ namespace FSLogistic.Web.Controllers
             return Ok(bills);
         }
 
-        // api/bill/SearchByShipperId/1
+        [HttpGet("SearchByCustomerName/{customerName}")]
+        public async Task<IActionResult> SearchByCustomerName(string customerName)
+        {
+            var bills = await _billService.SearchByCustomerName(customerName);
+            return Ok(bills);
+        }
+
         [HttpGet("SearchByShipperId/{shipperId}")]
         public async Task<IActionResult> SearchByShipperId(int shipperId)
         {
             var bills = await _billService.SearchByShipperId(shipperId);
+            return Ok(bills);
+        }
+
+        [HttpGet("SearchByShipperName/{shipperName}")]
+        public async Task<IActionResult> SearchByShipperName(string shipperName)
+        {
+            var bills = await _billService.SearchByShipperName(shipperName);
             return Ok(bills);
         }
 
@@ -58,11 +69,11 @@ namespace FSLogistic.Web.Controllers
             return Ok(bills);
         }
 
-        // api/bill/SearchByDistrict/1
-        [HttpGet("SearchByDistrict/{district}")]
-        public async Task<IActionResult> SearchByDistrict(District district)
+
+        [HttpGet("SearchByDistrict/{districtId}")]
+        public async Task<IActionResult> SearchByDistrict(District districtId)
         {
-            var bills = await _billService.SearchByDistrict(district);
+            var bills = await _billService.SearchByDistrict(districtId);
             return Ok(bills);
         }
     }

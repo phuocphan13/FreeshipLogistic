@@ -13,9 +13,12 @@ namespace FSLogistic.Service.Bill
 
         Task<List<Domain.Models.Bill>> SearchByCustomerId(int customerId);
 
-        Task<List<Domain.Models.Bill>> SearchByCustomer(string name);
+        Task<List<Domain.Models.Bill>> SearchByCustomerName(string name);
+
         Task<List<Domain.Models.Bill>> SearchByShipperId(int shipperId);
-        Task<List<Domain.Models.Bill>> SearchByShipper(string name);
+
+        Task<List<Domain.Models.Bill>> SearchByShipperName(string name);
+
         Task<List<Domain.Models.Bill>> SearchByDistrict(District district);
 
     }
