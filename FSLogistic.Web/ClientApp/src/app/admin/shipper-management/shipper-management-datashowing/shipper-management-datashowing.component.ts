@@ -9,15 +9,12 @@ import { ShipperManagementService } from 'src/core/services/shipper-management.s
 export class ShipperManagementDatashowingComponent implements OnInit {
 
   constructor(private shipperManagementService: ShipperManagementService) { }
-  listShipper:any[];
+  listShipper: any[];
   ngOnInit() {
-    this.shipperManagementService.get().subscribe(result=>{
-      if (result)
-      {
-        console.log(result);
-        this.listShipper=result.data;
+    this.shipperManagementService.get().subscribe(result => {
+      if (result.data) {
+        this.listShipper = result.data;
       }
     })
   }
-
 }

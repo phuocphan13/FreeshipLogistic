@@ -20,7 +20,7 @@ namespace FSLogistic.Service.ShipperManagement
     {
 
         public ShipperManagementService(IPrincipal principal, IHttpContextAccessor context,
-            IRepository<Domain.Models.Account> accountRepository 
+            IRepository<Domain.Models.Account> accountRepository
            ) : base(principal, context, accountRepository)
         {
         }
@@ -28,13 +28,13 @@ namespace FSLogistic.Service.ShipperManagement
         public async Task<ResponeModel<List<ShipperAccountModel>>> GetListAccount()
         {
             var listResourceAccountsEntity = await _accountRepository.GetAllListAsync();
-            if(listResourceAccountsEntity==null)
+            if (listResourceAccountsEntity.Count == 0)
             {
                 return SetResponeData<List<ShipperAccountModel>>(ShipperManagementMessage.ErrorMessageLoadData, ResponeStatusEnum.Null, null);
             }
 
-            var listShipperAccountsModel = new List<ShipperAccountModel>();
-            foreach(var item in listResourceAccountsEntity)
+            var listShipperAccounts = new List<ShipperAccountModel>();
+            foreach (var item in listResourceAccountsEntity)
             {
                 var accountmodel = new ShipperAccountModel()
                 {
@@ -43,13 +43,10 @@ namespace FSLogistic.Service.ShipperManagement
                     UserId = item.UserId,
                     UserName = "hardcode@gmail.com",
                 };
-                listShipperAccountsModel.Add(accountmodel);
-            }          
+                listShipperAccounts.Add(accountmodel);
+            }
 
-            return SetResponeData(ShipperManagementMessage.GetSuccessed, ResponeStatusEnum.Successed, listShipperAccountsModel);
+            return SetResponeData(ShipperManagementMessage.GetSuccessed, ResponeStatusEnum.Successed, listShipperAccounts);
         }
-
-
-
     }
 }
