@@ -1,0 +1,52 @@
+$text-fontweight: 600;
+$basic-margin: 5%;
+
+.customer-management-container {
+  height: 100%;
+  margin-left: $basic-margin;
+  margin-right: $basic-margin;
+  margin-top: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 18px;
+}
+
+.section-title:after {
+  overflow: hidden;
+  width: 100%;
+  height: 2px;
+  background: black;
+  content: " ";
+  vertical-align: middle;
+  margin-left: 0.35em;
+  display: inline-block;
+}
+
+.section-title {
+  display: inline-block;
+  position: relative;
+  font-size: 36px;
+  font-weight: $text-fontweight;
+  color: black;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1px;
+  line-height: 0.75em;
+  width: 90% !important;
+  padding: 1rem 0;
+  margin-bottom: 0.5rem;
+  margin-left: $basic-margin;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.show-data-section {
+  width: 90%;
+  height: 100%;
+  border-radius: 18px;
+  margin-top: 35px;
+  margin-left: $basic-margin;
+  margin-right: $basic-margin;
+}
