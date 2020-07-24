@@ -15,7 +15,8 @@ namespace FSLogistic.Service
             //CreateMap<Domain.Models.Owner, OwnerModalModel>().ReverseMap();
             CreateMap<TestFlowCreateModel, Summary>();
             CreateMap<CustomerModel, Domain.Models.Customer>().ReverseMap();
-            CreateMap<AddCustomerModel, Domain.Models.Customer>().ReverseMap();
+            CreateMap<CustomerCreateModel, Domain.Models.Customer>().ReverseMap();
+            CreateMap<CustomerCreateModel, ValidateDistModel>().ReverseMap();
         }
     }
 }
