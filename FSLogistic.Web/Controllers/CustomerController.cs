@@ -28,9 +28,9 @@ namespace FSLogistic.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(AddCustomerModel data)
+        public async Task<IActionResult> Create(CustomerCreateModel data)
         {
-            var result = _customerService.CreateCustomer(data);
+            var result = await _customerService.CreateCustomer(data);
             return Ok(result);
         }
     }
