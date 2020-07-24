@@ -17,7 +17,7 @@ export class CustomerService {
         return this.httpClient.get<ResponeModel>(`${apiHost}/${this.homeAddress}`);
     }
 
-    create(customer: AddCustomer): Observable<ResponeModel> {
-        return this.httpClient.post<ResponeModel>(`${apiHost}/${this.homeAddress}`, customer)
+    create(customer: AddCustomer): Observable<any> {
+        return this.httpClient.post<any>(`${apiHost}/${this.homeAddress}`, customer)
     }
 }
