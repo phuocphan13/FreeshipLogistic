@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { ProductService } from "./product.service";
 import { CustomerService } from "./customer.service";
 import { Bill_ShipperService } from "./bill_shipper.service";
+import { AdminService } from "./admin.service";
+import { ShipperService } from "./shipper.service";
 
 @NgModule({
     declarations: [
@@ -9,7 +11,8 @@ import { Bill_ShipperService } from "./bill_shipper.service";
     providers: [
         ProductService,
         CustomerService,
-        Bill_ShipperService,
+        ShipperService,
+        AdminService,
     ]
 })
 export class ServiceModule { }

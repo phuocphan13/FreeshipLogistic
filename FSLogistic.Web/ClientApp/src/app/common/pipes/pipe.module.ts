@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { MycurrencyPipe } from './my-currency-pipe';
 import { PhonePipe } from './number-phone-pipe';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
     declarations: [
         MycurrencyPipe,
-        PhonePipe
+        PhonePipe,
+        TruncatePipe
     ],
     providers: [
     ],
     exports: [
         MycurrencyPipe,
-        PhonePipe
+        PhonePipe,
+        TruncatePipe
     ]
 })
 export class PipeModule {}

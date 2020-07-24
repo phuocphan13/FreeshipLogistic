@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Bill_ShipperService } from 'src/core/services/bill_shipper.service';
-import { BillShippers } from 'src/core/models/bill_shipper.model';
 import { ResponeStatusEnum } from 'src/core/models/shared/respone.model';
+import { ShipperService } from 'src/core/services/shipper.service';
+import { ShipperBillModel } from 'src/core/models/shipper-bill.model';
 
 @Component({
   selector: 'app-shipper-bill-datashowing',
@@ -9,139 +9,45 @@ import { ResponeStatusEnum } from 'src/core/models/shared/respone.model';
   styleUrls: ['./shipper-bill-datashowing.component.scss']
 })
 export class ShipperBillDatashowingComponent implements OnInit {
-  listbillShippers: BillShippers[] = [];
+  
+  listbills: ShipperBillModel[] = [];
 
-  constructor(private billShipperService: Bill_ShipperService) { }
+  searchString: string;
+  showingId: number;
+
+  statusId: any;
+  pickedStatus: any;
+
+  listStatus: any = [
+    { id: 1, name: 'Tìm kiếm theo ngày' },
+    { id: 2, name: 'Tìm kiếm theo trạng thái' },
+    { id: 3, name: 'Tìm kiếm theo tên khách hàng' },
+  ];
+
+  customerId: any;
+  pickedCustomer: any;
+
+  listCustomer: any = [
+    { id: 1, name: 'NguyenThu' },
+    { id: 2, name: 'KhoGaChiBuoi' },
+    { id: 3, name: 'LeMinh' },
+    { id: 4, name: 'MyTra' },
+    { id: 5, name: 'UyenBetty' },
+    { id: 6, name: 'ThanhVy' },
+  ];
+
+  constructor(private shipperService: ShipperService) { }
 
   ngOnInit() {
-    this.billShipperService.get().subscribe(result => {
+    this.shipperService.get().subscribe(result => {
       if (result.responeStatus == ResponeStatusEnum.Successed) {
-        this.listbillShippers = result.data;
+        this.listbills = result.data;
+        console.log(result);
       }
     })
   }
 
-  billShippers = [
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      total: '108000',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS21042170',
-      customer: 'NGUYENTHU',
-      receiverName: 'Phương Nga',
-      address: '379/20C Tân Hòa Đông',
-      district: 'Bình Tân',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho đồng kiểm. Không được thử. Nếu không nhận liên hệ Shop.',
-      total: '185000',
-      status: 'Chưa',
-      staffNote: 'Khách không nghe máy',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'THANHVY',
-      receiverName: 'Hoài Thy',
-      address: '170 Đường số 32 Bình Phú',
-      district: '6',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng.',
-      total: '510000',
-      status: 'Chuyển hoàn',
-      staffNote: 'Khách không nhận hàng',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      total: '108000',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'THANHVY',
-      receiverName: 'Hoài Thy',
-      address: '170 Đường số 32 Bình Phú',
-      district: '6',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng.',
-      total: '510000',
-      status: 'Chuyển hoàn',
-      staffNote: 'Khách không nhận hàng',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS21042170',
-      customer: 'NGUYENTHU',
-      receiverName: 'Phương Nga',
-      address: '379/20C Tân Hòa Đông',
-      district: 'Bình Tân',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho đồng kiểm. Không được thử. Nếu không nhận liên hệ Shop.',
-      total: '185000',
-      status: 'Chưa',
-      staffNote: 'Khách không nghe máy',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'THANHVY',
-      receiverName: 'Hoài Thy',
-      address: '170 Đường số 32 Bình Phú',
-      district: '6',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng.',
-      total: '510000',
-      status: 'Chuyển hoàn',
-      staffNote: 'Khách không nhận hàng',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      total: '108000',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS21042170',
-      customer: 'NGUYENTHU',
-      receiverName: 'Phương Nga',
-      address: '379/20C Tân Hòa Đông',
-      district: 'Bình Tân',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho đồng kiểm. Không được thử. Nếu không nhận liên hệ Shop.',
-      total: '185000',
-      status: 'Chưa',
-      staffNote: 'Khách không nghe máy',
-      doneDate: '21/04/2020',
-    },
-  ]
+  onClickEdit() {
 
-  onClickEdit(){
-    
   }
 }

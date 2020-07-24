@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ShipperBillComponent } from './shipper-bill.component';
 import { ShipperBillRoutingModule } from './shipper-bill-routing.module';
 import { ShipperBillDatashowingComponent } from './shipper-bill-datashowing/shipper-bill-datashowing.component';
-import { ToolbarShipperComponent } from './toolbar-shipper/toolbar-shipper.component';  
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -16,7 +15,6 @@ import { PipeModule } from 'src/app/common/pipes/pipe.module';
   declarations: [
     ShipperBillComponent,
     ShipperBillDatashowingComponent,
-    ToolbarShipperComponent,
   ],
   imports: [
     CommonModule,

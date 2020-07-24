@@ -1,4 +1,19 @@
-<app-toolbar-admin></app-toolbar-admin>
+<div class="tool-bar">
+  <div class="container">
+      <ng-select class="select-search" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
+          [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn kiểu tìm kiếm"></ng-select>
+      <div class="input-group">
+          <input type="text" class="form-control input-search" placeholder="Tìm kiếm..."
+              aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append">
+              <button class="btn btn-secondary button" type="button" id="button-addon2">
+                  <i class="fa fa-search"></i></button>
+          </div>
+      </div>
+      <i class="fas fa-file-export icon-export icon-circle" (click)="onClickExport()"> Xuất Excel</i>
+      <i class="fas fa-plus-circle icon-circle icon-circle" (click)="onClickAdd()"> Thêm mới</i>
+  </div>
+</div>
 
 <div class="body-admin" id="style-2">
   <table class="table table-container table-bordered">
@@ -23,16 +38,16 @@
       </tr>
     </thead>
     <tbody class="table table-fixed">
-      <tr [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1" *ngFor="let item of billAdmins; index as i">
+      <tr [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1" *ngFor="let item of listbills; index as i">
         <th class="cell-1 cell-border format-text-center">{{i+1}}</th>
-        <td class="cell-2 cell-border format-text-center">{{item.code}}</td>
-        <td class="cell-3 cell-border format-text-center">{{item.customer}}</td>
+        <td class="cell-2 cell-border format-text-center">{{item.billCode}}</td>
+        <td class="cell-3 cell-border format-text-center">{{item.code}}</td>
         <td class="cell-4 cell-border format-text-center">{{item.receiverName}}</td>
-        <td class="cell-5 cell-border format-text-center">{{item.address}}</td>
-        <td class="cell-6 cell-border format-text-center">{{item.district}}</td>
+        <td class="cell-5 cell-border format-text-left">{{item.address | truncate : 150}}</td>
+        <td class="cell-6 cell-border format-text-center">{{item.district }}</td>
         <td class="cell-7 cell-border format-text-center">{{item.phoneNumber | phone}}</td>
-        <td class="cell-8 cell-border format-text-center">{{item.customerNote}}</td>
-        <td class="cell-9 cell-border format-text-center">{{item.staffName}}</td>
+        <td class="cell-8 cell-border format-text-left">{{item.customerNote | truncate : 150}}</td>
+        <td class="cell-9 cell-border format-text-center">{{item.name}}</td>
         <td class="cell-10 cell-border format-text-center">{{item.total | mycurrency}}</td>
         <td class="cell-11 cell-border format-text-center">{{item.fee | mycurrency}}</td>
         <td class="cell-12 cell-border format-text-center">{{item.advanceMoney | mycurrency}}</td>
@@ -40,12 +55,21 @@
         <td class="cell-14 cell-border format-text-center">{{item.staffNote}}</td>
         <td class="cell-15 cell-border format-text-center">{{item.doneDate}}</td>
         <td class="cell-16 cell-border format-text-center action-icon-container">
-          <i class="fas fa-edit" (click)="onClickEdit(item)"></i>
-          <i class="fas fa-trash-alt" (click)="onClickDelete(item)"></i>
+          <i class="fas fa-edit icon-item" (click)="onClickEdit(item)"></i>
+          <i class="fas fa-trash-alt icon-item" (click)="onClickDelete(item)"></i>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<app-processed-data></app-processed-data>
+<div class="procesed-data">
+  <div class="container">
+      <div class="cell1">Tổng tiền ứng:</div>
+      <label for="male" class="form-control cell2">10.000.000</label>
+      <div class="cell3">Tổng thu:</div>
+      <label for="male" class="form-control cell4">10.000.000</label>
+      <div class="cell5">Tổng phí ship:</div>
+      <label for="male" class="form-control cell6">10.000.000</label>
+  </div>
+</div>

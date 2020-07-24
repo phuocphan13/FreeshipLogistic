@@ -10,10 +10,10 @@ export class PhonePipe {
         let newStr = "";
         let i = 0;
 
-        for (; i < Math.floor(rawNum.length / 2) - 1; i++) {
-            newStr = newStr + rawNum.substr(i * 2, 2) + ".";
+        for (; i < Math.floor(rawNum.length / 3) - 1; i++) {
+            newStr = newStr + rawNum.substr(i * 3, 3) + " ";
         }
 
-        return newStr + rawNum.substr(i * 2);
+        return newStr + rawNum.substr(i * 3);
     }
 }
