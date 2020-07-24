@@ -30,7 +30,7 @@ namespace FSLogistic.Service.ShipperManagement
             var listResourceAccountsEntity = await _accountRepository.GetAllListAsync();
             if (listResourceAccountsEntity.Count == 0)
             {
-                return SetResponeData<List<ShipperAccountModel>>(ShipperManagementMessage.ErrorMessageLoadData, ResponeStatusEnum.Null, null);
+                return SetResponeData<List<ShipperAccountModel>>(ShipperManagementMessage.ErrorMessageLoadData, ResponeStatusEnum.Failed, null);
             }
 
             var listShipperAccounts = new List<ShipperAccountModel>();
@@ -40,7 +40,6 @@ namespace FSLogistic.Service.ShipperManagement
                 {
                     Code = item.Code,
                     Name = item.Name,
-                    UserId = item.UserId,
                     UserName = "hardcode@gmail.com",
                 };
                 listShipperAccounts.Add(accountmodel);

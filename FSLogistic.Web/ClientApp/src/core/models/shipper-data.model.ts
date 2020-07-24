@@ -1,5 +1,4 @@
-export interface ShipperDataModel {
-    userId:number;
+export class ShipperDataModel {
     name: string;
     code: string;
     username: string;      

@@ -3,11 +3,12 @@
         <div class="header-row-wrapper">
             <table>
                 <thead>
-                    <tr class="header-row">
-                        <th class="header-cell column1">Name</th>
-                        <th class="header-cell column2">Email</th>
-                        <th class="header-cell column3">Code</th>
-                    </tr>
+                  <tr class="header-row">
+                    <th class="header-cell column1">STT</th>
+                    <th class="header-cell column2">Tên Shipper</th>
+                    <th class="header-cell column3">Email</th>
+                    <th class="header-cell column4">Mã Code</th>
+                  </tr>
                 </thead>
             </table>
         </div>
@@ -15,11 +16,12 @@
         <div class="table-content-section" id="style-2">
             <table>
                 <tbody>
-                    <tr *ngFor="let item of listShipper; let i=index" class=" body">
-                        <td class="text-cell column1">{{item.name}}</td>
-                        <td class="text-cell column2">{{item.userName}}</td>
-                        <td class="text-cell column3">{{item.code}}</td>
-                    </tr>
+                  <tr *ngFor="let item of listShipper; let i=index" class=" body">
+                    <td class="text-cell column1">{{i+1}}</td>
+                    <td class="text-cell column2">{{item.name}}</td>
+                    <td class="text-cell column3">{{item.userName}}</td>
+                    <td class="text-cell column4">{{item.code}}</td>
+                  </tr>
                 </tbody>
             </table>
         </div>

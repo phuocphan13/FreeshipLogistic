@@ -3,7 +3,6 @@ import { AdminService } from 'src/core/services/admin.service';
 import { AdminBillModel } from 'src/core/models/admin-bill.model';
 import { ResponeStatusEnum } from 'src/core/models/shared/respone.model';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
-import { AddBillModalComponent } from 'src/app/modals/add-bill-modal/add-bill-modal.component';
 
 @Component({
   selector: 'app-admin-bill-datashowing',
@@ -37,6 +36,6 @@ export class AdminBillDatashowingComponent implements OnInit {
   }
 
   onClickAdd(){
-    this.modalRef = this.bsModalService.show(AddBillModalComponent, this.config)
+    
   }
 }

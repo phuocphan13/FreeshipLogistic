@@ -7,7 +7,6 @@ import { ShipperBillComponent } from "./shipper-bill/shipper-bill.component";
 const routes: Routes = [
     {
         path: 'shipper',
-        canActivateChild: [AuthorizeGuard],
         component: ShipperComponent,
         children: [
             {

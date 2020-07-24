@@ -1,5 +1,7 @@
-﻿using FSLogistic.Core.Extensions;
+﻿using AutoMapper;
+using FSLogistic.Core.Extensions;
 using FSLogistic.Core.Repositories;
+using FSLogistic.Core.UoW;
 using FSLogistic.Domain.Models;
 using FSLogistic.Model.Shared;
 using Microsoft.AspNetCore.Http;
@@ -31,6 +33,8 @@ namespace FSLogistic.Service
             _principal = principal as ClaimsPrincipal;
             _context = context;
             _accountRepository = accountRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public BaseService(IPrincipal principal, IHttpContextAccessor context, IRepository<Domain.Models.Account> accountRepository)
@@ -67,16 +71,16 @@ namespace FSLogistic.Service
 
         protected void AddInfoDataForEntity<T>(T modelObject, bool isCreate) where T : BaseEntityModel
         {
-            if (User == null)
-            {
-                return;
-            }
+            //if (User == null)
+            //{
+            //    return;
+            //}
             if (isCreate)
             {
-                modelObject.CreatedBy = User.Id;
+                modelObject.CreatedBy = 1;
                 modelObject.CreatedDate = GetCurrentDate();
             }
-            modelObject.UpdatedBy = User.Id;
+            modelObject.UpdatedBy = 1;
             modelObject.UpdatedDate = GetCurrentDate();
         }
 

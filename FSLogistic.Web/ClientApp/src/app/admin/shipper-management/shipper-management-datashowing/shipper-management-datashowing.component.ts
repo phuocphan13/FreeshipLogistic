@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipperManagementService } from 'src/core/services/shipper-management.service';
+import { ShipperDataModel } from '../../../../core/models/shipper-data.model';
 
 @Component({
   selector: 'app-shipper-management-datashowing',
@@ -9,7 +10,7 @@ import { ShipperManagementService } from 'src/core/services/shipper-management.s
 export class ShipperManagementDatashowingComponent implements OnInit {
 
   constructor(private shipperManagementService: ShipperManagementService) { }
-  listShipper: any[];
+  listShipper: ShipperDataModel[]=[];
   ngOnInit() {
     this.shipperManagementService.get().subscribe(result => {
       if (result.data) {

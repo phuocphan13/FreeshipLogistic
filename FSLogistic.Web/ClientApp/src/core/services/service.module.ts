@@ -4,6 +4,7 @@ import { CustomerService } from "./customer.service";
 import { Bill_ShipperService } from "./bill_shipper.service";
 import { AdminService } from "./admin.service";
 import { ShipperService } from "./shipper.service";
+import { ShipperManagementService } from "./shipper-management.service";
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { ShipperService } from "./shipper.service";
         CustomerService,
         ShipperService,
         AdminService,
+        ShipperManagementService,
     ]
 })
 export class ServiceModule { }

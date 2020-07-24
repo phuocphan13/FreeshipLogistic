@@ -4,18 +4,13 @@ using FSLogistic.Core.Helpers;
 using FSLogistic.Core.Repositories;
 using FSLogistic.Core.UoW;
 using FSLogistic.Domain.Models;
-using FSLogistic.Model.Bill_Shipper;
-using FSLogistic.Model.Customer;
 using FSLogistic.Model.Shared;
 using FSLogistic.Model.Shipper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FSLogistic.Service.Bill_Shipper

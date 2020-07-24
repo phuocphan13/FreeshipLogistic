@@ -21,34 +21,40 @@ $text-cell-background-color:#808080;
 }
 
 .component-container {
-    box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.15);
-    border-radius: 18px;
-    padding-bottom: 10px;
-    overflow-wrap: break-word;
+  box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  padding-bottom: 10px;
+  overflow-wrap: break-word;
 
-    table {
-        width: 100%;
-        table-layout: fixed;
-    }
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
 
-    .column1 {
-        width: 30%;
-        padding-left: 60px;
-    }
+  .column1 {
+    width: 15%;
+    padding-left: 20px;
+  }
 
-    .column2 {
-        width: 32%;
-        padding-left: 30px;
-    }
+  .column2 {
+    width: 25%;
+    padding-left: 20px;
+  }
 
-    .column3 {
-        width: 15%;
-        padding-left: 30px;
-    }
+  .column3 {
+    width: 25%;
+    padding-left: 20px;
+  }
+
+  .column4 {
+    width: 15%;
+    padding-left: 0px;
+  }
 }
 
 .text-cell {
     font-family: Lato-Regular;
+    text-align: center;
     font-size: 24px;
     color: $text-cell-background-color;
     line-height: 1.4;
@@ -62,7 +68,9 @@ $text-cell-background-color:#808080;
 }
 
 .header-cell {
+  text-align: center;
     padding-top: 18px;
+    padding-left: 30px;
     padding-right: 10px;
     padding-bottom: 18px;
 }

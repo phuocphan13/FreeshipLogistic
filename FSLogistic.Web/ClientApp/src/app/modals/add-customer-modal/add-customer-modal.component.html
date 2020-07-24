@@ -1,40 +1,54 @@
 <div class="title">ADD CUSTOMER</div>
 <div class="container">
-  <form>
-
+  <form [formGroup]="customerFormGroup">
     <div class="row">
       <div class="col-15">
         <label>NAME:</label>
       </div>
-      <div class="col-35">
-        <input type="text" placeholder="Name.." [(ngModel)]="name" name="name">
+       <div class="col-35">
+        <input type="text" placeholder="Name.." class="field-input form-control"
+        formControlName="name"
+        [class.is-invalid]="customerFormGroup.get('name').invalid && customerFormGroup.get('name').touched"
+        [(ngModel)]="name" name="name" ngModel>
       </div>
       <div class="col-15">
         <label>CODE:</label>
       </div>
       <div class="col-35">
-        <input type="text" placeholder="Code.." [(ngModel)]="code" name="code">
+        <input type="text" placeholder="Code.." class="field-input form-control"
+        formControlName="code"
+        [class.is-invalid]="customerFormGroup.get('code').invalid && customerFormGroup.get('code').touched"
+         [(ngModel)]="code" name="code" ngModel>
       </div>
     </div>
 
-    <div class="row">
+     <div class="row">
       <div class="col-15">
         <label>Q.1:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q1" name="q1">
+        <input type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q1"
+        [class.is-invalid]="customerFormGroup.get('q1').invalid && customerFormGroup.get('q1').touched"
+         [(ngModel)]="q1" name="q1" ngModel>
       </div>
       <div class="col-15">
         <label>Q.2:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q2" name="q2">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q2"
+        [class.is-invalid]="customerFormGroup.get('q2').invalid && customerFormGroup.get('q2').touched"
+         [(ngModel)]="q2" name="q2" ngModel>
       </div>
       <div class="col-15">
         <label>Q.3:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q3" name="q3">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q3"
+        [class.is-invalid]="customerFormGroup.get('q3').invalid && customerFormGroup.get('q3').touched"
+         [(ngModel)]="q3" name="q3" ngModel>
       </div>
     </div>
 
@@ -43,19 +57,28 @@
         <label>Q.4:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q4" name="q4">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q4"
+        [class.is-invalid]="customerFormGroup.get('q4').invalid && customerFormGroup.get('q4').touched"
+         [(ngModel)]="q4" name="q4" ngModel>
       </div>
       <div class="col-15">
         <label>Q.5:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q5" name="q5">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q5"
+        [class.is-invalid]="customerFormGroup.get('q5').invalid && customerFormGroup.get('q5').touched"
+         [(ngModel)]="q5" name="q5" ngModel>
       </div>
       <div class="col-15">
         <label>Q.6:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q6" name="q6">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q6"
+        [class.is-invalid]="customerFormGroup.get('q6').invalid && customerFormGroup.get('q6').touched"
+         [(ngModel)]="q6" name="q6" ngModel>
       </div>
     </div>
 
@@ -64,19 +87,28 @@
         <label>Q.7:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q7" name="q7">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q7"
+        [class.is-invalid]="customerFormGroup.get('q7').invalid && customerFormGroup.get('q7').touched"
+         [(ngModel)]="q7" name="q7" ngModel>
       </div>
       <div class="col-15">
         <label>Q.8:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q8" name="q8">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q8"
+        [class.is-invalid]="customerFormGroup.get('q8').invalid && customerFormGroup.get('q8').touched"
+         [(ngModel)]="q8" name="q8" ngModel>
       </div>
       <div class="col-15">
         <label>Q.9:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q9" name="q9">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q9"
+        [class.is-invalid]="customerFormGroup.get('q9').invalid && customerFormGroup.get('q9').touched"
+         [(ngModel)]="q9" name="q9" ngModel>
       </div>
     </div>
 
@@ -85,19 +117,28 @@
         <label>Q.10:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q10" name="q10">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q10"
+        [class.is-invalid]="customerFormGroup.get('q10').invalid && customerFormGroup.get('q10').touched"
+         [(ngModel)]="q10" name="q10" ngModel>
       </div>
       <div class="col-15">
         <label>Q.11:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q11" name="q11">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q11"
+        [class.is-invalid]="customerFormGroup.get('q11').invalid && customerFormGroup.get('q11').touched"
+         [(ngModel)]="q11" name="q11" ngModel>
       </div>
       <div class="col-15">
         <label>Q.12:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="q12" name="q12">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="q12"
+        [class.is-invalid]="customerFormGroup.get('q12').invalid && customerFormGroup.get('q12').touched"
+         [(ngModel)]="q12" name="q12" ngModel>
       </div>
     </div>
 
@@ -106,19 +147,28 @@
         <label>Q.Thủ Đức:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qtd" name="qtd">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qtd"
+        [class.is-invalid]="customerFormGroup.get('qtd').invalid && customerFormGroup.get('qtd').touched"
+         [(ngModel)]="qtd" name="qtd" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Gò Vấp:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qgv" name="qgv">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qgv"
+        [class.is-invalid]="customerFormGroup.get('qgv').invalid && customerFormGroup.get('qgv').touched"
+         [(ngModel)]="qgv" name="qgv" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Bình Thạnh:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qbth" name="qbth">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qbth"
+        [class.is-invalid]="customerFormGroup.get('qbth').invalid && customerFormGroup.get('qbth').touched"
+         [(ngModel)]="qbth" name="qbth" ngModel>
       </div>
     </div>
 
@@ -127,19 +177,28 @@
         <label>Q.Tân Bình:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qtb" name="qtb">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qtb"
+        [class.is-invalid]="customerFormGroup.get('qtb').invalid && customerFormGroup.get('qtb').touched"
+         [(ngModel)]="qtb" name="qtb" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Tân Phú:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qtp" name="qtp">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qtp"
+        [class.is-invalid]="customerFormGroup.get('qtp').invalid && customerFormGroup.get('qtp').touched"
+         [(ngModel)]="qtp" name="qtp" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Bình Tân:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qbtn" name="qbtn">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qbtn"
+        [class.is-invalid]="customerFormGroup.get('qbtn').invalid && customerFormGroup.get('qbtn').touched"
+         [(ngModel)]="qbtn" name="qbtn" ngModel>
       </div>
     </div>
 
@@ -148,19 +207,28 @@
         <label>Q.Phú Nhuận:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qpn" name="qpn">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qpn"
+        [class.is-invalid]="customerFormGroup.get('qpn').invalid && customerFormGroup.get('qpn').touched"
+         [(ngModel)]="qpn" name="qpn" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Củ Chi:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qcc" name="qcc">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qcc"
+        [class.is-invalid]="customerFormGroup.get('qcc').invalid && customerFormGroup.get('qcc').touched"
+         [(ngModel)]="qcc" name="qcc" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Hóc Môn:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qhm" name="qhm">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qhm"
+        [class.is-invalid]="customerFormGroup.get('qhm').invalid && customerFormGroup.get('qhm').touched"
+         [(ngModel)]="qhm" name="qhm" ngModel>
       </div>
     </div>
 
@@ -169,25 +237,35 @@
         <label>Q.Bình Chánh:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qbc" name="qbc">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qbc"
+        [class.is-invalid]="customerFormGroup.get('qbc').invalid && customerFormGroup.get('qbc').touched"
+         [(ngModel)]="qbc" name="qbc" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Nhà Bè:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qnb" name="qnb">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qnb"
+        [class.is-invalid]="customerFormGroup.get('qnb').invalid && customerFormGroup.get('qnb').touched"
+         [(ngModel)]="qnb" name="qnb" ngModel>
       </div>
       <div class="col-15">
         <label>Q.Cần Giờ:</label>
       </div>
       <div class="col-15">
-        <input type="number" placeholder="VNĐ.." [(ngModel)]="qcg" name="qcg">
+        <input required type="number" placeholder="VNĐ.." class="field-input form-control"
+        formControlName="qcg"
+        [class.is-invalid]="customerFormGroup.get('qcg').invalid && customerFormGroup.get('qcg').touched"
+         [(ngModel)]="qcg" name="qcg" ngModel>
       </div>
-    </div>
+    </div> 
 
-    <div class="container-btn">
+    
+  </form>
+  <div class="container-btn">
       <button type="submit" class="btn button-log-in" (click)="onClickAdd()">Add</button>
       <button class="btn btn-danger button-cancel" (click)="onClickCancel()">Cancel</button>
     </div>
-  </form>
 </div>
