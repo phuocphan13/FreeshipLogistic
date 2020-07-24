@@ -2,6 +2,7 @@
 using FSLogistic.Domain;
 using FSLogistic.Domain.UoW;
 using FSLogistic.Service.Account;
+using FSLogistic.Service.Admin;
 using FSLogistic.Service.Bill_Shipper;
 using FSLogistic.Service.Customer;
 using FSLogistic.Service.Product;
@@ -26,6 +27,7 @@ namespace FSLogistic.Service
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IShipperService, ShipperService>();
+            services.AddScoped<IAdminService, AdminService>();
 
             services.AddTransient<IPrincipal>(provider =>
             {

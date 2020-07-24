@@ -17,25 +17,31 @@ namespace FSLogistic.Service
     public class BaseService
     {
         private ClaimsPrincipal _principal;
-
-        protected readonly IUnitOfWork _unitOfWork;
-        protected readonly IMapper _mapper;
-
+        private IPrincipal principal;
+        private IHttpContextAccessor context;
+        private IRepository<Domain.Models.Account> accountRepository;
         private readonly IHttpContextAccessor _context;
         
         protected readonly IRepository<Domain.Models.Account> _accountRepository;
 
         protected readonly IUnitOfWork _unitOfWork;
         protected readonly IMapper _mapper;
-
         public BaseService(IPrincipal principal, IHttpContextAccessor context,
-            IRepository<Domain.Models.Account> accountRepository, IUnitOfWork unitOfWork, IMapper mapper)
+            IRepository<Domain.Models.Account> accountRepository, 
+            IUnitOfWork unitOfWork, IMapper mapper)
         {
             _principal = principal as ClaimsPrincipal;
             _context = context;
             _accountRepository = accountRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+        }
+
+        public BaseService(IPrincipal principal, IHttpContextAccessor context, IRepository<Domain.Models.Account> accountRepository)
+        {
+            this.principal = principal;
+            this.context = context;
+            this.accountRepository = accountRepository;
         }
 
         protected string CurrentUserGUID => Principal.GetCurrentUserGUID(_context);
