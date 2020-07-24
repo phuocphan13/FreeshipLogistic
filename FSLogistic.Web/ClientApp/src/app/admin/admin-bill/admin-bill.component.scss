@@ -1,89 +1,85 @@
+$basic-margin: 5%;
+$filter-bar-height: 50px;
 
-  $basic-margin:5%;
-  $filter-bar-height:50px;
-
-.home-page-container{
-    height: 100%;
-    margin-left:$basic-margin;
-    margin-right: $basic-margin;
-    margin-top: 20px;    
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    width: 90%;    
-    border-radius: 18px;
-
+.home-page-container {
+  height: 100%;
+  margin-left: $basic-margin;
+  margin-right: $basic-margin;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+  border-radius: 18px;
 }
 
 .section-title:after {
-    overflow: hidden;
-    width: 100%;
-    height: 2px;
-    background:black;
-    content: " ";
-    vertical-align: middle;
-    margin-left: 0.35em;
-    display: inline-block;
-  }
-  
-  .section-title {
-    display: inline-block;
-    position: relative;
-    font-size: 36px;
-    font-weight: 600;
-    color: black;
-    text-transform: uppercase;
-    font-style: italic;
-    letter-spacing: 1px;
-    line-height: 0.75em;
-    width: 90% !important;
-    padding: 1rem 0;
-    margin-bottom: 0.5rem;
-    margin-left: $basic-margin;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+  overflow: hidden;
+  width: 100%;
+  height: 2px;
+  background: black;
+  content: " ";
+  vertical-align: middle;
+  margin-left: 0.35em;
+  display: inline-block;
+}
 
-  .show-data-section{
-      width: 90%;
-      height: 500px;
-      border:solid 2px black;
-      border-radius: 18px;
-      margin-top:35px;
-      margin-left: $basic-margin;
-      margin-right: $basic-margin;
-  }
+.section-title {
+  display: inline-block;
+  position: relative;
+  font-size: 36px;
+  font-weight: 600;
+  color: black;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1px;
+  line-height: 0.75em;
+  width: 90% !important;
+  padding: 1rem 0;
+  margin-bottom: 0.5rem;
+  margin-left: $basic-margin;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
-  .filter-bar-section{
-    display: flex;
-    margin-top:25px;
-    flex-direction: row;
-    width: 100%;
-     height: $filter-bar-height;
-  }
+.show-data-section {
+  width: 90%;
+  height: 500px;
+  border: solid 2px black;
+  border-radius: 18px;
+  margin-top: 35px;
+  margin-left: $basic-margin;
+  margin-right: $basic-margin;
+}
 
-  .filter-bar{
-    width: 60%;
-    border:solid 2px black;
-    height: $filter-bar-height;
-    margin-left: 15%;
-  }
+.filter-bar-section {
+  display: flex;
+  margin-top: 25px;
+  flex-direction: row;
+  width: 100%;
+  height: $filter-bar-height;
+}
 
+.filter-bar {
+  width: 60%;
+  border: solid 2px black;
+  height: $filter-bar-height;
+  margin-left: 15%;
+}
 
-  .side-detail-section{
-    width: 75%;
-    height: 100px;
-    border:solid 2px black;
-    border-radius: 18px;
-    margin-top:30px;
-    margin-left: 12.5%;
-    margin-right: $basic-margin;
-  }
+.side-detail-section {
+  width: 75%;
+  height: 100px;
+  border: solid 2px black;
+  border-radius: 18px;
+  margin-top: 30px;
+  margin-left: 12.5%;
+  margin-right: $basic-margin;
+}
 
-  .btn-secondary{
-    width: 10%;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    margin-left: $basic-margin;
-  }
+.btn-secondary {
+  width: 10%;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: $basic-margin;
+}

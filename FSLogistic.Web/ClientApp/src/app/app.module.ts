@@ -10,6 +10,9 @@ import { ServiceModule } from 'src/core/services/service.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module'
 import { ShipperModule } from './shipper/shipper.module';
+import { AppCommonModule } from './common/app-common.module';
+import { ModalsModule } from './modals/modals.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,16 @@ import { ShipperModule } from './shipper/shipper.module';
     FormsModule,
     AppRoutingModule,
 
+    ModalsModule,
+    ModalModule.forRoot(),
+
+    AppCommonModule,
+
     AdminModule,
     ShipperModule,
 
     ApiAuthorizationModule,
-    ServiceModule,
+    ServiceModule,    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

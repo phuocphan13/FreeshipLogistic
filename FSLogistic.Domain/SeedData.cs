@@ -21,7 +21,33 @@ namespace FSLogistic.Domain
             {
                 new Customer()
                 {
-
+                    Id = 1,
+                    Code = "TranDan",
+                    CreatedBy = 1,
+                    CreatedDate = DateTime.Now,
+                    UpdatedBy = null,
+                    UpdatedDate = null,
+                    Name = "Trần Dần",
+                    Q1 = 30000, Q2 = 50000, Q3 = 30000, Q4 = 30000, Q5 = 30000, Q6 = 30000,
+                    Q7 = 30000, Q8 = 30000, Q9 = 30000, Q10 = 30000, Q11 = 30000, Q12 = 30000,
+                    QTD = 30000, QGV = 30000, QTB = 30000, QTP = 30000, QPN = 30000,
+                    QCC = 30000, QHM = 30000, QBC = 30000, QNB = 30000, QCG = 30000,
+                    QBTH = 30000, QBTN = 30000,
+                },
+                 new Customer()
+                {
+                    Id = 2,
+                    Code = "Truong3Gio",
+                    CreatedBy = 1,
+                    CreatedDate = DateTime.Now,
+                    UpdatedBy = null,
+                    UpdatedDate = null,
+                    Name = "Trương Tam Phong",
+                    Q1 = 30000, Q2 = 50000, Q3 = 30000, Q4 = 30000, Q5 = 30000, Q6 = 30000,
+                    Q7 = 30000, Q8 = 30000, Q9 = 30000, Q10 = 30000, Q11 = 30000, Q12 = 30000,
+                    QTD = 30000, QGV = 30000, QTB = 30000, QTP = 30000, QPN = 30000,
+                    QCC = 30000, QHM = 30000, QBC = 30000, QNB = 30000, QCG = 30000,
+                    QBTH = 30000, QBTN = 30000,
                 }
             };
         }

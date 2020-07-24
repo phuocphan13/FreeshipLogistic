@@ -29,14 +29,16 @@ namespace FSLogistic.Service.Account
             {
                 LastName = accountCreate.LastName,
                 FirstName = accountCreate.FirstName,
-                UserId = accountCreate.UserId,
-                Guid = Guid.NewGuid()
+                Guid = Guid.Parse(accountCreate.UserId),
             };
 
             using(var generateCodeHelper = new GenerateCodeHelper())
             {
                 account.Code = generateCodeHelper.GenerateCode(account.FirstName, account.LastName, listCodes);
             }
+
+            account.CreatedBy = 1;
+            account.CreatedDate = DateTime.Now;
 
             await _accountRepository.InsertAsync(account);
             return await _unitOfWork.SaveChangesAsync();

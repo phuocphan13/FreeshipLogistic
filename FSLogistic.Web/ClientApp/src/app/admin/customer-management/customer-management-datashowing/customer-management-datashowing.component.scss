@@ -1,0 +1,75 @@
+$margin:10px;
+
+.title {
+    font-family: cursive;
+    font-size: 40px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 30px;
+}
+
+.table-container {
+    width: 1100px;
+    overflow-x: scroll;
+    height: 470px;
+    overflow-y: scroll;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px -4px inset;
+
+    .row-head {
+        vertical-align: middle;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .row-body {
+        vertical-align: middle;
+        text-align: center;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+}
+
+table {
+    position: relative;
+    border: 1px solid black;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: #9aa0f0;
+    color: brown;
+    border: 1px solid black;
+}
+
+.td-body {
+    border-right: 1px solid black;
+}
+
+.button-update {
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(10, 9, 9);
+    background-color: #c1ffea;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+    margin-top: $margin;
+    margin-left: $margin;
+    margin-bottom: $margin;
+    margin-right: $margin;
+}
+
+.button-update:hover {
+    background-color: #9ac9b9;
+}
+
+.button-update:active {
+    background-color: #9ac9b9;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

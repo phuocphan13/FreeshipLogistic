@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FSLogistic.Core.Consts;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -36,6 +37,25 @@ namespace FSLogistic.Core.Helpers
             var day = data.Value.Day < 10 ? $"0{data.Value.Day}" : $"{data.Value.Day}";
             var month = data.Value.Month < 10 ? $"0{data.Value.Month}" : $"{data.Value.Month}";
             return $"{day}-{month}-{data.Value.Year}";
+        }
+
+        public static string CheckBillDeliveryStatus(BillDeliveryStatus data)
+        {
+            if (data == BillDeliveryStatus.Done)
+            {
+                return DeliveryStatusMessage.DoneMessage;
+            }
+
+            if (data == BillDeliveryStatus.NotDone)
+            {
+                return DeliveryStatusMessage.NotDoneMessage;
+            }
+
+            if (data == BillDeliveryStatus.Returned)
+            {
+                return DeliveryStatusMessage.ReturnedMessage;
+            }
+            return null;
         }
     }
 }

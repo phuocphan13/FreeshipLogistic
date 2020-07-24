@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { AdminComponent } from "./admin.component";
 import { AdminBillComponent } from "./admin-bill/admin-bill.component";
 import { ShipperManagementComponent } from "./shipper-management/shipper-management.component";
+import { CustomerManagementComponent } from "./customer-management/customer-management.component";
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
             {
                 path:'shipper-management',
                 component:ShipperManagementComponent,
+            },
+            {
+                path:'customer-management',
+                component:CustomerManagementComponent,
             },
         ]
     },

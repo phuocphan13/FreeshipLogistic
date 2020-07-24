@@ -1,26 +1,26 @@
-$odd-row-color:white;
-$even-row-color:#f8f6ff;
-$header-background-color:#6c7ae0;
-$toolbar-color:#f5f5f5;
+$odd-row-color: white;
+$even-row-color: #f8f6ff;
+$header-background-color: #6c7ae0;
+$toolbar-color: #f5f5f5;
 
 .body-admin {
-    width: 1110px;
+    width: 1160px;
     box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.15);
-    height: 600px;
+    height: 500px;
     overflow-x: scroll;
 }
 
-.table-bordered{
-    border:none;
+.table-bordered {
+    border: none;
 }
 
-.cell-border{
-    // overflow-wrap: break-word;
-border:none;
+.cell-border {
+    overflow-wrap: break-word;
+    border: none;
 }
 
 .table-container {
-    width: 2300px;
+    width: 2687px;
     margin-bottom: 0rem;
 }
 
@@ -39,6 +39,10 @@ table {
     text-align: center;
 }
 
+.format-text-left {
+    text-align: left;
+}
+
 .row-odd {
     background-color: $odd-row-color;
 }
@@ -53,9 +57,12 @@ table {
     justify-content: space-around;
 }
 
-i.fas {
+.icon-item {
     padding: 5px;
     font-size: 20px;
+}
+
+i.fas {
     cursor: pointer;
 }
 
@@ -81,8 +88,8 @@ i.fas:hover {
 }
 
 #style-2::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);   
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     margin-top: 46px;
     background-color: $toolbar-color;
@@ -91,7 +98,7 @@ i.fas:hover {
 
 #style-2::-webkit-scrollbar {
     margin-top: 46px;
-    height:6px;
+    height: 6px;
     width: 6px;
     background-color: $toolbar-color;
     border: solid 3px transparent;
@@ -102,6 +109,208 @@ i.fas:hover {
     margin-top: 46px;
     border: solid 3px transparent;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #cccccc;
+}
+
+.cell-1 {
+    width: 63px;
+    border: none;
+}
+
+.cell-2 {
+    width: 125px;
+    border: none;
+}
+
+.cell-3 {
+    width: 180px;
+    border: none;
+}
+
+.cell-4 {
+    width: 160px;
+    border: none;
+}
+
+.cell-5 {
+    width: 260px;
+    border: none;
+}
+
+.cell-6 {
+    width: 120px;
+    border: none;
+}
+
+.cell-7 {
+    width: 160px;
+    border: none;
+}
+
+.cell-8 {
+    width: 450px;
+    border: none;
+}
+
+.cell-9 {
+    width: 132px;
+    border: none;
+}
+
+.cell-10 {
+    width: 148px;
+    border: none;
+}
+
+.cell-11 {
+    width: 138px;
+    border: none;
+}
+
+.cell-12 {
+    width: 148px;
+    border: none;
+}
+
+.cell-13 {
+    width: 136px;
+    border: none;
+}
+
+.cell-14 {
+    width: 221px;
+    border: none;
+}
+
+.cell-15 {
+    width: 176px;
+    border: none;
+}
+
+.cell-16 {
+    width: 70px;
+    border: none;
+}
+
+$basic-margin: 30px;
+$text-fontweight: 500;
+$width: 245px;
+$height: 36px;
+
+.tool-bar {
+    margin-bottom: 15px;
+    float: right;
+    .container {
+        display: flex;
+        flex-direction: row;
+
+        .select-search {
+            width: $width;
+            font-weight: $text-fontweight;
+        }
+        .input-group {
+            width: 316px;
+        }
+
+        .input-search {
+            margin-left: $basic-margin;
+            font-weight: $text-fontweight;
+
+            height: $height;
+        }
+
+        .button {
+            height: $height;
+        }
+    }
+}
+
+.icon-circle {
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 0.6em 0.6em;
+    cursor: pointer;
+    margin-left: $basic-margin;
+    color: #fff;
+    background-color: #669999;
+    border-color: #669999;
+}
+
+.icon-circle:hover {
+    background-color: #33cccc;
+    border-color: #33cccc;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+$width: 150px;
+$height: 36px;
+$margin-top: 25px;
+$text-fontweight: 600;
+$padding-top: 5px;
+$border: solid 1px black;
+$text-align: center;
+$font-size: 20px;
+$font-size-label: 18px;
+.container {
+    display: flex;
+    flex-direction: row;
+
+    .cell1 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: 140px;
+        height: $height;
+        font-size: $font-size;
+    }
+
+    .cell2 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        text-align: $text-align;
+        font-size: $font-size-label;
+    }
+
+    .cell3 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: 95px;
+        height: $height;
+        margin-left: inherit;
+        font-size: $font-size;
+    }
+
+    .cell4 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        text-align: $text-align;
+        font-size: $font-size-label;
+    }
+
+    .cell5 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: 136px;
+        height: $height;
+        margin-left: inherit;
+        font-size: $font-size;
+    }
+
+    .cell6 {
+        font-weight: $text-fontweight;
+        padding-top: $padding-top;
+        width: $width;
+        height: $height;
+        text-align: $text-align;
+        font-size: $font-size-label;
+    }
+}
+
+.procesed-data {
+    margin-top: $margin-top;
 }

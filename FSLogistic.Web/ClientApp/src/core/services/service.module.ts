@@ -1,15 +1,18 @@
 import { NgModule } from "@angular/core";
 import { ProductService } from "./product.service";
-import { TestFlowService } from "./test-flow.service";
-import { ShipperManagementService } from "./shipper-management.service";
+import { CustomerService } from "./customer.service";
+import { Bill_ShipperService } from "./bill_shipper.service";
+import { AdminService } from "./admin.service";
+import { ShipperService } from "./shipper.service";
 
 @NgModule({
     declarations: [
     ],
     providers: [
         ProductService,
-        TestFlowService,
-        ShipperManagementService,
+        CustomerService,
+        ShipperService,
+        AdminService,
     ]
 })
 export class ServiceModule { }

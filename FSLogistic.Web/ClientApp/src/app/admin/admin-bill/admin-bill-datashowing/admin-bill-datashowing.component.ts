@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/core/services/admin.service';
+import { AdminBillModel } from 'src/core/models/admin-bill.model';
+import { ResponeStatusEnum } from 'src/core/models/shared/respone.model';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { AddBillModalComponent } from 'src/app/modals/add-bill-modal/add-bill-modal.component';
 
 @Component({
   selector: 'app-admin-bill-datashowing',
@@ -6,159 +11,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-bill-datashowing.component.scss']
 })
 export class AdminBillDatashowingComponent implements OnInit {
+  listbills: AdminBillModel[] = [];
+  modalRef: BsModalRef;
+  config: ModalOptions = { class: 'modal-lg' };
+  
+  statusId: any;
+  pickedStatus: any;
 
-  listHeaders = ["STT", "Mã bill", "Mã Khách hàng", "Tên người nhận",
-    "Địa chỉ", "Quận", "SĐT", "Ghi chú của khách hàng", "Nhân viên",
-    "Tổng thu", "Phí", "Tiền ứng", "Trạng thái", "Ghi chú nhân viên", "Ngày báo phát", ""];
-  listAdmins = [
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '180.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '160.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS29052040',
-      customer: 'LELAN',
-      receiverName: 'Phúc',
-      address: '59B Thạnh Xuân 33',
-      district: '12',
-      phoneNumber: '0909345678',
-      customerNote: 'Không Cho Khách Xem Hàng - Nếu Khách Yêu Cầu Thì Liên Hệ Shop.',
-      staffName: 'Tai',
-      total: '220.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '200.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS29052044',
-      customer: 'NGUYENTHU',
-      receiverName: 'Ngọc Diệp',
-      address: '18/9 Hà Thị Khiêm',
-      district: '12',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '320.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '300.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS29052177',
-      customer: 'NGUYENTHU',
-      receiverName: 'Lan',
-      address: '134/4 Lê Văn Khương',
-      district: '12',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '450.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '430.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS29052071',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Xuân Kim',
-      address: '171 Cao Thắng',
-      district: '10',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '180.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '160.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '180.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '160.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '180.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '160.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '180.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '160.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-    {
-      code: 'FS27042022',
-      customer: 'KHOGACHIBUOI',
-      receiverName: 'Hà Bùi',
-      address: '327/42 Lãnh Binh Thăng',
-      district: '11',
-      phoneNumber: '0909345678',
-      customerNote: 'Cho khách kiểm tra hàng. Hàng dễ vỡ xin nhẹ tay.',
-      staffName: 'Tai',
-      total: '180.000 VNĐ',
-      fee: '20.000 VNĐ',
-      advanceMoney: '160.000 VNĐ',
-      status: 'Chưa',
-      staffNote: 'Khách không có ở nhà',
-      doneDate: '21/04/2020',
-    },
-  ]
-  constructor() { }
+  listStatus: any = [
+    { id: 1, name: 'Tìm kiếm theo ngày' },
+    { id: 2, name: 'Tìm kiếm theo trạng thái' },
+    { id: 3, name: 'Tìm kiếm theo tên khách hàng' },
+    { id: 4, name: 'Tìm kiếm theo tên nhân viên' },
+  ];
+
+  constructor(private adminService: AdminService,
+              private bsModalService: BsModalService) { }
 
   ngOnInit() {
+    this.adminService.get().subscribe(result => {
+      if (result.responeStatus == ResponeStatusEnum.Successed) {
+        this.listbills = result.data;
+      }
+    })
   }
 
+  onClickAdd(){
+    this.modalRef = this.bsModalService.show(AddBillModalComponent, this.config)
+  }
 }

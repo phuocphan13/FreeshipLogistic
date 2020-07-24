@@ -1,6 +1,10 @@
 ﻿using FSLogistic.Core.UoW;
 using FSLogistic.Domain;
 using FSLogistic.Domain.UoW;
+using FSLogistic.Service.Account;
+using FSLogistic.Service.Admin;
+using FSLogistic.Service.Bill_Shipper;
+using FSLogistic.Service.Customer;
 using FSLogistic.Service.Product;
 using FSLogistic.Service.ShipperManagement;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +25,10 @@ namespace FSLogistic.Service
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IShipperService, ShipperService>();
+            services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IShipperManagementService,ShipperManagementService>();
 
             services.AddTransient<IPrincipal>(provider =>

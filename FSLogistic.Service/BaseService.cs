@@ -15,17 +15,29 @@ namespace FSLogistic.Service
     public class BaseService
     {
         private ClaimsPrincipal _principal;
-        
+        private IPrincipal principal;
+        private IHttpContextAccessor context;
+        private IRepository<Domain.Models.Account> accountRepository;
         private readonly IHttpContextAccessor _context;
         
         protected readonly IRepository<Domain.Models.Account> _accountRepository;
 
+        protected readonly IUnitOfWork _unitOfWork;
+        protected readonly IMapper _mapper;
         public BaseService(IPrincipal principal, IHttpContextAccessor context,
-            IRepository<Domain.Models.Account> accountRepository)
+            IRepository<Domain.Models.Account> accountRepository, 
+            IUnitOfWork unitOfWork, IMapper mapper)
         {
             _principal = principal as ClaimsPrincipal;
             _context = context;
             _accountRepository = accountRepository;
+        }
+
+        public BaseService(IPrincipal principal, IHttpContextAccessor context, IRepository<Domain.Models.Account> accountRepository)
+        {
+            this.principal = principal;
+            this.context = context;
+            this.accountRepository = accountRepository;
         }
 
         protected string CurrentUserGUID => Principal.GetCurrentUserGUID(_context);
@@ -67,6 +79,7 @@ namespace FSLogistic.Service
             modelObject.UpdatedBy = User.Id;
             modelObject.UpdatedDate = GetCurrentDate();
         }
+
         protected ResponeModel<T> SetResponeData<T>(string message, ResponeStatusEnum status, T data) where T : class
         {
             var respone = new ResponeModel<T>

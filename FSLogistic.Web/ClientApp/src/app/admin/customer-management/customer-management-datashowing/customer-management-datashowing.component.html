@@ -1,0 +1,51 @@
+<div class="title">Customer</div>
+<div>
+    <app-customer-management-toolbar></app-customer-management-toolbar>
+</div>
+<div>
+    <div class="table-container table table-striped">
+        <table>
+
+            <thead>
+                <tr class="row-head">
+                    <th *ngFor="let item of listHeaders">{{item}}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="row-body" [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1"
+                    *ngFor="let item of listCustomers; index as i">
+                    <td class="td-body">{{i+1}}</td>
+                    <td class="td-body">{{item.code}}</td>
+                    <td class="td-body">{{item.name}}</td>
+                    <td class="td-body">{{item.q1 | mycurrency}}</td>
+                    <td class="td-body">{{item.q2 | mycurrency}}</td>
+                    <td class="td-body">{{item.q3 | mycurrency}}</td>
+                    <td class="td-body">{{item.q4 | mycurrency}}</td>
+                    <td class="td-body">{{item.q5 | mycurrency}}</td>
+                    <td class="td-body">{{item.q6 | mycurrency}}</td>
+                    <td class="td-body">{{item.q7 |mycurrency}}</td>
+                    <td class="td-body">{{item.q8 | mycurrency}}</td>
+                    <td class="td-body">{{item.q9 | mycurrency}}</td>
+                    <td class="td-body">{{item.q10 | mycurrency}}</td>
+                    <td class="td-body">{{item.q11 | mycurrency}}</td>
+                    <td class="td-body">{{item.q12 | mycurrency}}</td>
+                    <td class="td-body">{{item.qtd | mycurrency}}</td>
+                    <td class="td-body">{{item.qgv | mycurrency}}</td>
+                    <td class="td-body">{{item.qbth | mycurrency}}</td>
+                    <td class="td-body">{{item.qtb | mycurrency}}</td>
+                    <td class="td-body">{{item.qtp | mycurrency}}</td>
+                    <td class="td-body">{{item.qbtn | mycurrency}}</td>
+                    <td class="td-body">{{item.qpn | mycurrency}}</td>
+                    <td class="td-body">{{item.qcc | mycurrency}}</td>
+                    <td class="td-body">{{item.qhm | mycurrency}}</td>
+                    <td class="td-body">{{item.qbc | mycurrency}}</td>
+                    <td class="td-body">{{item.qnb | mycurrency}}</td>
+                    <td class="td-body">{{item.qcg | mycurrency}}</td>
+                    <button class="button-update">Update</button>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

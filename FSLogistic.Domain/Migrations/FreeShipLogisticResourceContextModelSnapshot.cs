@@ -42,7 +42,7 @@ namespace FSLogistic.Domain.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<Guid>("GUID")
+                    b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
@@ -59,9 +59,6 @@ namespace FSLogistic.Domain.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Account");
@@ -75,7 +72,7 @@ namespace FSLogistic.Domain.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Data")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -83,6 +80,26 @@ namespace FSLogistic.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Autocomplete");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Data = "132 Trường Chinh, Quận Tân Bình",
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Data = "0912 321 251",
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Data = "333 Trần Hưng Đạo, Quận 1",
+                            Type = 1
+                        });
                 });
 
             modelBuilder.Entity("FSLogistic.Domain.Models.Bill", b =>
