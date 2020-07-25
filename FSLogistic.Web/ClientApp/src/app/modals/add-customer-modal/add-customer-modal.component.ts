@@ -63,7 +63,7 @@ export class AddCustomerModalComponent implements OnInit {
       ]),
       code: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[a-zA-Z0-9 ]*$")
+        Validators.pattern("^[a-zA-Z0-9]*$")
       ]),
       q1: new FormControl('', [
         Validators.required,
@@ -192,11 +192,15 @@ export class AddCustomerModalComponent implements OnInit {
     this.customer.qtd = this.qtd;
     this.customer.qtp = this.qtp;
     this.customerService.create(this.customer).subscribe(result => {
-      if(result.responeStatus == 1){
+      if (result.responeStatus == 1) {
         alert(result.message);
         location.reload();
         this.bsModalRef.hide;
       }
+      else {
+        alert(result.message);
+      }
+
     })
   }
 }
