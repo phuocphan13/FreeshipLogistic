@@ -8,7 +8,7 @@ import { Router, RouterModule } from "@angular/router";
 })
 export class AdminBillComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }

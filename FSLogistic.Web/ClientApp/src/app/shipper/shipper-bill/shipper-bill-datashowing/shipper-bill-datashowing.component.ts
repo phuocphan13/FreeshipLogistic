@@ -42,7 +42,6 @@ export class ShipperBillDatashowingComponent implements OnInit {
     this.shipperService.get().subscribe(result => {
       if (result.responeStatus == ResponeStatusEnum.Successed) {
         this.listbills = result.data;
-        console.log(result);
       }
     })
   }

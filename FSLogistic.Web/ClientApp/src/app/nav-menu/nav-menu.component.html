@@ -8,12 +8,10 @@
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
         <app-login-menu></app-login-menu>
-        <ul class="navbar-nav flex-grow">
-         
+        <ul class="navbar-nav flex-grow"> 
           <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/shipper/bill']">Home</a>
+            <a class="nav-link text-dark" [routerLink]="['/admin/bill']">Bill</a>
           </li>
-
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/admin/shipper-management']">Shipper Management</a>
           </li>

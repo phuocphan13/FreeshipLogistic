@@ -13,7 +13,7 @@ import { AddCustomerModalComponent } from 'src/app/modals/add-customer-modal/add
 export class CustomerManagementDatashowingComponent implements OnInit {
   listCustomers: Customer[] = [];
 
-  modalRef:BsModalRef;
+  modalRef: BsModalRef;
   config: ModalOptions = { class: 'modal-lg' };
 
   listStatus: any = [
@@ -21,14 +21,13 @@ export class CustomerManagementDatashowingComponent implements OnInit {
     { id: 2, name: 'Tìm kiếm theo mã' },
     { id: 3, name: 'Tìm kiếm theo quận' },
   ];
-  
+
   constructor(private customerService: CustomerService,
-    private bsModalService:BsModalService,
+    private bsModalService: BsModalService,
   ) { }
 
   ngOnInit() {
     this.customerService.get().subscribe(result => {
-      console.log(result);
       if (result.responeStatus == ResponeStatusEnum.Successed) {
         this.listCustomers = result.data;
       }

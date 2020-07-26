@@ -3,12 +3,10 @@ $filter-bar-height: 50px;
 
 .home-page-container {
   height: 100%;
-  margin-left: $basic-margin;
-  margin-right: $basic-margin;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  width: 97%;
+  width: 100%;
   border-radius: 18px;
 }
 

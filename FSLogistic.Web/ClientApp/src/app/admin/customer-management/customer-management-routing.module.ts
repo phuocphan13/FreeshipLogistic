@@ -8,10 +8,10 @@ const routes: Routes = [
     {
         path: 'customer-management',
         component: CustomerManagementComponent,
-        children:[
+        children: [
             {
-                path:'',
-                component:CustomerManagementDatashowingComponent,
+                path: '',
+                component: CustomerManagementDatashowingComponent,
             }
         ]
     },

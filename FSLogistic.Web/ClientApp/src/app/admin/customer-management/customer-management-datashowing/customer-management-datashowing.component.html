@@ -31,14 +31,15 @@
         </div>
         <div class="table-content-section" id="style-2">
             <div class="parent" [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1"
-             *ngFor="let item of listCustomers; index as i">
+                *ngFor="let item of listCustomers; index as i">
                 <div>
                     <div class="row">
                         <div class="col1 td-body">{{i+1}}</div>
                         <div class="col2 td-body">{{item.name}}</div>
                         <div class="col3 td-body">{{item.code}}</div>
-                        <div class="col4 td-body"><button class=" far fa-money-bill-alt" data-toggle="collapse" attr.data-target="#isCollapse{{i}}">
-                        </button></div> 
+                        <div class="col4 td-body"><button class=" far fa-money-bill-alt" data-toggle="collapse"
+                                attr.data-target="#isCollapse{{i}}">
+                            </button></div>
                         <div class="col5 td-body cell-border format-text-center action-icon-container">
                             <i class="fas fa-edit" (click)="onClickEdit(item)"></i>
                         </div>
