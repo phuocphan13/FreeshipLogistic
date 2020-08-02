@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FSLogistic.Web.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
@@ -31,6 +31,13 @@ namespace FSLogistic.Web.Controllers
         public async Task<IActionResult> Create(CustomerCreateModel data)
         {
             var result = await _customerService.CreateCustomer(data);
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(CustomerModel data)
+        {
+            var result = await _customerService.UpdateCustomer(data);
             return Ok(result);
         }
     }
