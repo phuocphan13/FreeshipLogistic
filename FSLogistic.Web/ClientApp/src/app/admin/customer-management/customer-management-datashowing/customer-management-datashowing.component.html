@@ -1,12 +1,12 @@
+<ngx-alerts></ngx-alerts>
 <div class="tool-bar">
     <div class="container">
         <ng-select class="select-search" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
             [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn kiểu tìm kiếm"></ng-select>
         <div class="input-group">
-            <input type="text" class="form-control input-search" placeholder="Tìm kiếm..."
-                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control input-search" placeholder="Tìm kiếm..." [(ngModel)]="searchData">
             <div class="input-group-append">
-                <button class="btn btn-secondary button" type="button" id="button-addon2">
+                <button class="btn btn-secondary button" (click)="onClickSearch()">
                     <i class="fa fa-search"></i></button>
             </div>
         </div>
@@ -31,41 +31,54 @@
         </div>
         <div class="table-content-section" id="style-2">
             <div class="parent" [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1"
-                *ngFor="let item of listCustomers; index as i">
+                *ngFor="let item of listCustomersShow; index as i">
                 <div>
                     <div class="row">
                         <div class="col1 td-body">{{i+1}}</div>
                         <div class="col2 td-body">{{item.name}}</div>
                         <div class="col3 td-body">{{item.code}}</div>
-                        <div class="col4 td-body"><button class=" far fa-money-bill-alt" data-toggle="collapse"
-                                attr.data-target="#isCollapse{{i}}">
-                            </button></div>
-                        <div class="col5 td-body cell-border format-text-center action-icon-container">
-                            <i class="fas fa-edit" (click)="onClickEdit(item)"></i>
+                        <div class="col4 td-body hover-collapse" data-toggle="collapse"
+                            attr.data-target="#isCollapse{{i}}" (click)="onClickCollapse(i)"> {{detailText}} </div>
+                        <div class="col5 td-body cell-border format-text-center action-icon-container update-btn">
+                            <i class="fas fa-edit" (click)="onClickEdit(i)"></i>
                         </div>
                     </div>
-                    <div class="collapse" id="isCollapse{{i}}">
-                        <div class="card">
+                    <div class="collapse " id="isCollapse{{i}}">
+                        <div class="card" id="style-2">
                             <div class="card-body">
-                                <table class="table">
+                                <table class="table" style="width: 3000px;">
                                     <thead class="background-collapse">
                                         <tr>
-                                            <th>Quận 1 </th>
-                                            <th>Quận 2 </th>
-                                            <th>Quận 3 </th>
-                                            <th>Quận 4 </th>
-                                            <th>Quận 5 </th>
-                                            <th>Quận 6 </th>
-                                            <th>Quận 7 </th>
-                                            <th>Quận 8 </th>
-                                            <th>Quận 9 </th>
-                                            <th>Quận 10 </th>
-                                            <th>Quận 11 </th>
-                                            <th>Quận 12 </th>
+                                            <th class="header-collapse">Quận</th>
+                                            <th class="header-collapse"> 1 </th>
+                                            <th class="header-collapse"> 2 </th>
+                                            <th class="header-collapse"> 3 </th>
+                                            <th class="header-collapse"> 4 </th>
+                                            <th class="header-collapse"> 5 </th>
+                                            <th class="header-collapse"> 6 </th>
+                                            <th class="header-collapse"> 7 </th>
+                                            <th class="header-collapse"> 8 </th>
+                                            <th class="header-collapse"> 9 </th>
+                                            <th class="header-collapse"> 10 </th>
+                                            <th class="header-collapse"> 11 </th>
+                                            <th class="header-collapse"> 12 </th>
+                                            <th class="header-collapse"> Thủ Đức </th>
+                                            <th class="header-collapse"> Gò Vấp </th>
+                                            <th class="header-collapse"> Bình Thạnh </th>
+                                            <th class="header-collapse"> Tân Bình </th>
+                                            <th class="header-collapse"> Tân Phú </th>
+                                            <th class="header-collapse"> Bình Tân </th>
+                                            <th class="header-collapse"> Phú Nhuận </th>
+                                            <th class="header-collapse"> Củ Chi </th>
+                                            <th class="header-collapse"> Hóc Môn </th>
+                                            <th class="header-collapse"> Bình Chánh </th>
+                                            <th class="header-collapse"> Nhà Bè </th>
+                                            <th class="header-collapse"> Cần Giờ </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>#</td>
                                             <td>{{item.q1 | mycurrency}} </td>
                                             <td>{{item.q2 | mycurrency}} </td>
                                             <td>{{item.q3 | mycurrency}} </td>
@@ -78,26 +91,6 @@
                                             <td>{{item.q10 | mycurrency}}</td>
                                             <td>{{item.q11 | mycurrency}}</td>
                                             <td>{{item.q12 | mycurrency}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <thead>
-                                        <tr class="background-collapse">
-                                            <th>Quận Thủ Đức </th>
-                                            <th>Quận Gò Vấp </th>
-                                            <th>Quận Bình Thạnh </th>
-                                            <th>Quận Tân Bình </th>
-                                            <th>Quận Tân Phú </th>
-                                            <th>Quận Bình Tân </th>
-                                            <th>Quận Phú Nhuận </th>
-                                            <th>Quận Củ Chi </th>
-                                            <th>Quận Hóc Môn </th>
-                                            <th>Quận Bình Chánh </th>
-                                            <th>Quận Nhà Bè </th>
-                                            <th>Quận Cần Giờ </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
                                             <td>{{item.qtd | mycurrency}}</td>
                                             <td>{{item.qgv | mycurrency}}</td>
                                             <td>{{item.qbth | mycurrency}}</td>
