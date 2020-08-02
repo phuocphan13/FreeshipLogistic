@@ -34,7 +34,7 @@ namespace FSLogistic.Core.Helpers
 
         public static bool ValidationForCode(string data)
         {
-            var regularExpression = @"^[a-zA-Z0-9-_]+$";
+            var regularExpression = @"^[a-zA-Z0-9]+$";
             var r = new Regex(regularExpression);
             return r.IsMatch(data);
         }
@@ -68,7 +68,7 @@ namespace FSLogistic.Core.Helpers
             foreach (PropertyInfo propertyInfo in data.GetType().GetProperties())
             {
                 var propertyValue = propertyInfo.GetValue(data).ToString();
-                var regularExpression = @"^[0-9]*$";
+                var regularExpression = @"^[1-9]+[0-9]{3,}$";
                 var r = new Regex(regularExpression);
                 var isMatched = r.IsMatch(propertyValue);
                 if (!isMatched)
