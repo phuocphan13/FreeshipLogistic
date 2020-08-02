@@ -11,6 +11,8 @@ namespace FSLogistic.Service.Customer
     {
         Task<ResponeModel<List<CustomerModel>>> GetDataCustomer();
 
-        Task<ResponeModel<CustomerCreateModel>> CreateCustomer(CustomerCreateModel data);
+        Task<ResponeModel<Domain.Models.Customer>> CreateCustomer(CustomerCreateModel data);
+
+        Task<ResponeModel<CustomerModel>> UpdateCustomer(CustomerModel data);
     }
 }

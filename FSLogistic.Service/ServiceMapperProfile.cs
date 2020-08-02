@@ -11,10 +11,12 @@ namespace FSLogistic.Service
         {
             CreateMap<CustomerModel, Domain.Models.Customer>().ReverseMap();
             CreateMap<ShipperBillModel, Domain.Models.Bill>().ReverseMap();
-            CreateMap<AddCustomerModel, Domain.Models.Customer>().ReverseMap();
             CreateMap<AdminBillModel, Domain.Models.Bill>().ReverseMap();
             CreateMap<CustomerCreateModel, Domain.Models.Customer>().ReverseMap();
             CreateMap<CustomerCreateModel, ValidateDistModel>().ReverseMap();
+            CreateMap<CustomerModel, ValidateDistModel>().ReverseMap();
+            CreateMap<CustomerUpdateModel, Domain.Models.Customer>().ReverseMap();
+            CreateMap<CustomerModel, CustomerUpdateModel>().ReverseMap();
         }
     }
 }
