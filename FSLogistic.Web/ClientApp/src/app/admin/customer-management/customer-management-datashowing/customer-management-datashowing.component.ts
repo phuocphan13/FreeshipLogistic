@@ -92,4 +92,15 @@ export class CustomerManagementDatashowingComponent implements OnInit {
     this.isExpand = !this.isExpand;
     document.getElementsByClassName("hover-collapse").item(i).innerHTML = this.isExpand ? "Đóng －" : "Xem ＋";
   }
+
+  onClickSearch() {
+    if (this.statusId == CustomerType.SearchByName) {
+      this.listCustomersSearch = this.listCustomers.filter(x => x.name.toLowerCase().includes(this.searchData.toLowerCase()));
+      this.listCustomersShow = this.listCustomersSearch;
+    }
+    else if (this.statusId == CustomerType.SearchByCode) {
+      this.listCustomersSearch = this.listCustomers.filter(x => x.code.toLowerCase().includes(this.searchData.toLowerCase()));
+      this.listCustomersShow = this.listCustomersSearch;
+    } else { this.listCustomersShow = this.listCustomers; }
+  }
 }
