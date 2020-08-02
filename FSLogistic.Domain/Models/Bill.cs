@@ -9,6 +9,8 @@ namespace FSLogistic.Domain.Models
 {
     public partial class Bill : BaseEntityModel
     {
+        public string BillCode { get; set; }
+
         [StringLength(256)]
         public string ReceiverName { get; set; }
 

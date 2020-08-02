@@ -25,6 +25,8 @@ namespace FSLogistic.Domain
             services.AddScoped<IRepository<Product>, Repository<Product>>();
             services.AddScoped<IRepository<Summary>,Repository<Summary>>();
             services.AddScoped<IRepository<Account>, Repository<Account>>();
+            services.AddScoped<IRepository<Customer>, Repository<Customer>>();
+            services.AddScoped<IRepository<Bill>, Repository<Bill>>();
         }
     }
 }

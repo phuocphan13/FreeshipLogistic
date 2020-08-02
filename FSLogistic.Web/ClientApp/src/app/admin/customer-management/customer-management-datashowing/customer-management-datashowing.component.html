@@ -1,0 +1,123 @@
+<div class="tool-bar">
+    <div class="container">
+        <ng-select class="select-search" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
+            [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn kiểu tìm kiếm"></ng-select>
+        <div class="input-group">
+            <input type="text" class="form-control input-search" placeholder="Tìm kiếm..."
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-secondary button" type="button" id="button-addon2">
+                    <i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        <i class="fas fa-plus-circle icon-circle icon-circle" (click)="onClickCreate()"> Thêm mới</i>
+    </div>
+</div>
+
+<div class="component-container">
+    <div class="component-container-wrapper">
+        <div class="header-row-wrapper">
+            <table>
+                <thead>
+                    <tr class="header-row">
+                        <th class="header-cell">STT</th>
+                        <th class="header-cell">Tên</th>
+                        <th class="header-cell">Mã</th>
+                        <th class="header-cell">Phí</th>
+                        <th class="header-cell"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="table-content-section" id="style-2">
+            <div class="parent" [class.row-odd]="i % 2 == 0" [class.row-even]="i % 2 == 1"
+                *ngFor="let item of listCustomers; index as i">
+                <div>
+                    <div class="row">
+                        <div class="col1 td-body">{{i+1}}</div>
+                        <div class="col2 td-body">{{item.name}}</div>
+                        <div class="col3 td-body">{{item.code}}</div>
+                        <div class="col4 td-body"><button class=" far fa-money-bill-alt" data-toggle="collapse"
+                                attr.data-target="#isCollapse{{i}}">
+                            </button></div>
+                        <div class="col5 td-body cell-border format-text-center action-icon-container">
+                            <i class="fas fa-edit" (click)="onClickEdit(item)"></i>
+                        </div>
+                    </div>
+                    <div class="collapse" id="isCollapse{{i}}">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead class="background-collapse">
+                                        <tr>
+                                            <th>Quận 1 </th>
+                                            <th>Quận 2 </th>
+                                            <th>Quận 3 </th>
+                                            <th>Quận 4 </th>
+                                            <th>Quận 5 </th>
+                                            <th>Quận 6 </th>
+                                            <th>Quận 7 </th>
+                                            <th>Quận 8 </th>
+                                            <th>Quận 9 </th>
+                                            <th>Quận 10 </th>
+                                            <th>Quận 11 </th>
+                                            <th>Quận 12 </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{item.q1 | mycurrency}} </td>
+                                            <td>{{item.q2 | mycurrency}} </td>
+                                            <td>{{item.q3 | mycurrency}} </td>
+                                            <td>{{item.q4 | mycurrency}} </td>
+                                            <td>{{item.q5 | mycurrency}} </td>
+                                            <td>{{item.q6 | mycurrency}} </td>
+                                            <td>{{item.q7 | mycurrency}} </td>
+                                            <td>{{item.q8 | mycurrency}} </td>
+                                            <td>{{item.q9 | mycurrency}} </td>
+                                            <td>{{item.q10 | mycurrency}}</td>
+                                            <td>{{item.q11 | mycurrency}}</td>
+                                            <td>{{item.q12 | mycurrency}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <thead>
+                                        <tr class="background-collapse">
+                                            <th>Quận Thủ Đức </th>
+                                            <th>Quận Gò Vấp </th>
+                                            <th>Quận Bình Thạnh </th>
+                                            <th>Quận Tân Bình </th>
+                                            <th>Quận Tân Phú </th>
+                                            <th>Quận Bình Tân </th>
+                                            <th>Quận Phú Nhuận </th>
+                                            <th>Quận Củ Chi </th>
+                                            <th>Quận Hóc Môn </th>
+                                            <th>Quận Bình Chánh </th>
+                                            <th>Quận Nhà Bè </th>
+                                            <th>Quận Cần Giờ </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{item.qtd | mycurrency}}</td>
+                                            <td>{{item.qgv | mycurrency}}</td>
+                                            <td>{{item.qbth | mycurrency}}</td>
+                                            <td>{{item.qtb | mycurrency}}</td>
+                                            <td>{{item.qtp | mycurrency}}</td>
+                                            <td>{{item.qbtn | mycurrency}}</td>
+                                            <td>{{item.qpn | mycurrency}}</td>
+                                            <td>{{item.qcc | mycurrency}}</td>
+                                            <td>{{item.qhm | mycurrency}}</td>
+                                            <td>{{item.qbc | mycurrency}}</td>
+                                            <td>{{item.qnb | mycurrency}}</td>
+                                            <td>{{item.qcg | mycurrency}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

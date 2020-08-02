@@ -1,0 +1,210 @@
+$odd-row-color: white;
+$even-row-color: #f8f6ff;
+$header-background-color: #6c7ae0;
+$toolbar-color: #f5f5f5;
+
+.body-admin {
+    width: 100%;
+    box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.15);
+    height: 500px;
+    overflow-x: scroll;
+}
+
+.table-bordered {
+    border: none;
+}
+
+.cell-border {
+    overflow-wrap: break-word;
+    border: none;
+}
+
+.table-container {
+    width: 2269px;
+    margin-bottom: 0rem;
+}
+
+table {
+    position: relative;
+}
+
+.header {
+    background-color: $header-background-color;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.format-text-left {
+    text-align: left;
+}
+
+.format-text-center {
+    text-align: center;
+}
+
+.row-odd {
+    background-color: $odd-row-color;
+}
+
+.row-even {
+    background-color: $even-row-color;
+}
+
+.action-icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+i.fas {
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+i.fas:hover {
+    color: red;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.table-extra {
+    width: 380px;
+    border: solid 1.5px black !important;
+    margin-top: 40px;
+    tr {
+        border-bottom: solid 1.5px black;
+        th {
+            border-right: solid 1.5px black;
+        }
+    }
+}
+
+#style-2::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-top: 46px;
+    background-color: $toolbar-color;
+    border: solid 3px transparent;
+}
+
+#style-2::-webkit-scrollbar {
+    margin-top: 46px;
+    height: 6px;
+    width: 6px;
+    background-color: $toolbar-color;
+    border: solid 3px transparent;
+}
+
+#style-2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    margin-top: 46px;
+    border: solid 3px transparent;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #cccccc;
+}
+
+.cell-1 {
+    width: 63px;
+    border: none;
+}
+
+.cell-2 {
+    width: 125px;
+    border: none;
+}
+
+.cell-3 {
+    width: 180px;
+    border: none;
+}
+
+.cell-4 {
+    width: 160px;
+    border: none;
+}
+
+.cell-5 {
+    width: 260px;
+    border: none;
+}
+
+.cell-6 {
+    width: 120px;
+    border: none;
+}
+
+.cell-7 {
+    width: 160px;
+    border: none;
+}
+
+.cell-8 {
+    width: 450px;
+    border: none;
+}
+
+.cell-9 {
+    width: 148px;
+    border: none;
+}
+
+.cell-10 {
+    width: 136px;
+    border: none;
+}
+
+.cell-11 {
+    width: 221px;
+    border: none;
+}
+
+.cell-12 {
+    width: 176px;
+    border: none;
+}
+
+.cell-13 {
+    width: 70px;
+    border: none;
+}
+
+$basic-margin: 30px;
+$text-fontweight: 500;
+$width: 245px;
+$height: 36px;
+
+.tool-bar {
+    margin-bottom: 15px;
+    float: right;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+
+        .select-search {
+            width: $width;
+            font-weight: $text-fontweight;
+        }
+        .input-group {
+            width: 316px;
+        }
+
+        .input-search {
+            margin-left: $basic-margin;
+            font-weight: $text-fontweight;
+
+            height: $height;
+        }
+
+        .button {
+            height: $height;
+        }
+    }
+}

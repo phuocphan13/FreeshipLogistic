@@ -1,0 +1,26 @@
+<div class="shipper-management-container">
+    <div class="section-title">
+        Quản lý shipper
+    </div>
+    <div class="tool-bar">
+        <div class="container">
+            <ng-select class="select-search" [searchable]="true" [items]="listStatus" bindLabel="name" bindValue="id"
+                [(ngModel)]="statusId" [(ngModel)]="pickedStatus" placeholder="Chọn kiểu tìm kiếm"></ng-select>
+            <div class="input-group">
+                <input type="text" class="form-control input-search" placeholder="Tìm kiếm..."
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary button" type="button" id="button-addon2">
+                        <i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <i class="fas fa-file-export icon-export icon-circle" (click)="onClickExport()"> Xuất Excel</i>
+            <i class="fas fa-plus-circle icon-circle icon-circle" (click)="onClickAdd()"> Thêm Shipper</i>
+        </div>
+    </div>
+    <div class="view-body-container">
+        <div class="show-data-section">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

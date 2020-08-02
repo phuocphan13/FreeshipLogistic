@@ -15,6 +15,8 @@ namespace FSLogistic.Domain.Models
         [MaxLength(256)]
         public string Name { get; set; }
 
+        public bool IsActive { get; set; }
+
         public decimal? Q1 { get; set; }
 
         public decimal? Q2 { get; set; }
@@ -53,7 +55,7 @@ namespace FSLogistic.Domain.Models
 
         public decimal? QPN { get; set; }
 
-        public decimal? Qcc { get; set; }
+        public decimal? QCC { get; set; }
 
         public decimal? QHM { get; set; }
 

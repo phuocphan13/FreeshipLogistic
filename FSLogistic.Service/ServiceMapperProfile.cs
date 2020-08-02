@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using FSLogistic.Domain.Models;
-using FSLogistic.Model.TestFlowModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using FSLogistic.Model.Admin;
+using FSLogistic.Model.Customer;
+using FSLogistic.Model.Shipper;
 
 namespace FSLogistic.Service
 {
@@ -11,8 +9,12 @@ namespace FSLogistic.Service
     {
         public ServiceMapperProfile()
         {
-            //CreateMap<Domain.Models.Owner, OwnerModalModel>().ReverseMap();
-            CreateMap<TestFlowCreateModel, Summary>();
+            CreateMap<CustomerModel, Domain.Models.Customer>().ReverseMap();
+            CreateMap<ShipperBillModel, Domain.Models.Bill>().ReverseMap();
+            CreateMap<AddCustomerModel, Domain.Models.Customer>().ReverseMap();
+            CreateMap<AdminBillModel, Domain.Models.Bill>().ReverseMap();
+            CreateMap<CustomerCreateModel, Domain.Models.Customer>().ReverseMap();
+            CreateMap<CustomerCreateModel, ValidateDistModel>().ReverseMap();
         }
     }
 }
