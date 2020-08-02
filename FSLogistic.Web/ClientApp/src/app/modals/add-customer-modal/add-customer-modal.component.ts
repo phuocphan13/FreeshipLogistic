@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AddCustomer } from 'src/core/models/add-customer.model';
 import { CustomerService } from 'src/core/services/customer.service';
-import { ResponeModel, ResponeStatusEnum } from 'src/core/models/shared/respone.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AlertService } from 'ngx-alerts';
+import { CustomerType } from 'src/app/common/customer-enum';
 
 @Component({
   selector: 'app-add-customer-modal',
@@ -13,39 +12,14 @@ import { AlertService } from 'ngx-alerts';
 })
 export class AddCustomerModalComponent implements OnInit {
 
+  customerDataCreate = new EventEmitter<any>();
+
   constructor(private bsModalRef: BsModalRef,
     private customerService: CustomerService,) { }
 
   customer: AddCustomer = new AddCustomer();
 
   customerFormGroup: FormGroup;
-
-  code: string;
-  name: string;
-  q1: number;
-  q2: number;
-  q3: number;
-  q4: number;
-  q5: number;
-  q6: number;
-  q7: number;
-  q8: number;
-  q9: number;
-  q10: number;
-  q11: number;
-  q12: number;
-  qtd: number;
-  qgv: number;
-  qbth: number;
-  qtb: number;
-  qtp: number;
-  qbtn: number;
-  qpn: number;
-  qcc: number;
-  qhm: number;
-  qbc: number;
-  qnb: number;
-  qcg: number;
 
   ngOnInit() {
     this.createFormGroup();
@@ -63,144 +37,140 @@ export class AddCustomerModalComponent implements OnInit {
       ]),
       code: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[a-zA-Z0-9]*$")
+        Validators.pattern("^[a-zA-Z0-9]{1,10}$")
       ]),
       q1: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q2: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q3: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q4: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q5: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q6: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q7: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q8: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q9: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q10: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q11: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       q12: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qtd: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qgv: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qbth: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qtb: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qtp: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qbtn: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qpn: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qcc: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qhm: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qbc: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qnb: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
       qcg: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("^[1-9]+[0-9]{3,}$"),
       ]),
     })
   }
 
   onClickAdd() {
-    this.customer.code = this.code;
-    this.customer.name = this.name;
-    this.customer.q1 = this.q1;
-    this.customer.q2 = this.q2;
-    this.customer.q3 = this.q3;
-    this.customer.q4 = this.q4;
-    this.customer.q5 = this.q5;
-    this.customer.q6 = this.q6;
-    this.customer.q7 = this.q7;
-    this.customer.q8 = this.q8;
-    this.customer.q9 = this.q9;
-    this.customer.q10 = this.q10;
-    this.customer.q11 = this.q11;
-    this.customer.q12 = this.q12;
-    this.customer.qbc = this.qbc;
-    this.customer.qbth = this.qbth;
-    this.customer.qbtn = this.qbtn;
-    this.customer.qcc = this.qcc;
-    this.customer.qcg = this.qcg;
-    this.customer.qgv = this.qgv;
-    this.customer.qhm = this.qhm;
-    this.customer.qnb = this.qnb;
-    this.customer.qpn = this.qpn;
-    this.customer.qtb = this.qtb;
-    this.customer.qtd = this.qtd;
-    this.customer.qtp = this.qtp;
+    if (this.customerFormGroup.get("name").invalid ||
+      this.customerFormGroup.get("code").invalid ||
+      this.customerFormGroup.get("q1").invalid ||
+      this.customerFormGroup.get("q2").invalid ||
+      this.customerFormGroup.get("q3").invalid ||
+      this.customerFormGroup.get("q4").invalid ||
+      this.customerFormGroup.get("q5").invalid ||
+      this.customerFormGroup.get("q6").invalid ||
+      this.customerFormGroup.get("q7").invalid ||
+      this.customerFormGroup.get("q8").invalid ||
+      this.customerFormGroup.get("q9").invalid ||
+      this.customerFormGroup.get("q10").invalid ||
+      this.customerFormGroup.get("q11").invalid ||
+      this.customerFormGroup.get("q12").invalid ||
+      this.customerFormGroup.get("qtd").invalid ||
+      this.customerFormGroup.get("qgv").invalid ||
+      this.customerFormGroup.get("qbth").invalid ||
+      this.customerFormGroup.get("qtb").invalid ||
+      this.customerFormGroup.get("qtp").invalid ||
+      this.customerFormGroup.get("qbtn").invalid ||
+      this.customerFormGroup.get("qpn").invalid ||
+      this.customerFormGroup.get("qcc").invalid ||
+      this.customerFormGroup.get("qhm").invalid ||
+      this.customerFormGroup.get("qbc").invalid ||
+      this.customerFormGroup.get("qnb").invalid ||
+      this.customerFormGroup.get("qcg").invalid) {
+      this.customerDataCreate.emit(CustomerType.Failed);
+      return;
+    }
     this.customerService.create(this.customer).subscribe(result => {
-      if (result.responeStatus == 1) {
-        alert(result.message);
-        location.reload();
-        this.bsModalRef.hide;
-      }
-      else {
-        alert(result.message);
-      }
-
+      this.customerDataCreate.emit(result);
+      this.bsModalRef.hide();
     })
   }
 }
